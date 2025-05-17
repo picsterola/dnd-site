@@ -58,7 +58,7 @@
       z-index: 0;
     }
 
-    .glow-title, .banner-subtitle {
+    .banner-text {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -74,16 +74,17 @@
       color: #ffffff;
       text-shadow: 0 0 10px #d2b48c, 0 0 20px #d2b48c, 0 0 30px #fff5cc;
       font-family: Helvetica, Arial, sans-serif;
+      margin: 0;
     }
 
     .banner-subtitle {
-      top: 60%;
       font-size: 2em;
       font-style: italic;
       color: #ffffff;
       text-shadow: 0 0 10px #d2b48c, 0 0 20px #d2b48c;
       animation: fadeInSlide 2s ease-out forwards;
       font-family: Helvetica, Arial, sans-serif;
+      margin: 0.2em 0 0;
     }
 
     body {
@@ -233,8 +234,10 @@
       <source src="https://raw.githubusercontent.com/picsterola/dnd-site/main/torment_header.mp4" type="video/mp4">
     </video>
     <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/sigil.png" alt="Campaign Sigil" class="sigil-overlay">
-    <h1 class="glow-title">The Winds of Ovener</h1>
-    <p class="banner-subtitle">A D&D Campaign</p>
+    <div class="banner-text">
+      <h1 class="glow-title">The Winds of Ovener</h1>
+      <p class="banner-subtitle">A D&D Campaign</p>
+    </div>
   </header>
 
   <section id="about">

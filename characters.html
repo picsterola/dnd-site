@@ -6,8 +6,7 @@
   <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/picsterola/dnd-site/main/sigil.png">
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Cinzel', serif;
+    body { font-family: 'Helvetica', Arial, sans-serif;
       background-color: #1a1a1a;
       color: #ffffff;
       text-shadow: 1px 1px 2px #000;
@@ -42,6 +41,8 @@
       text-shadow: 0 0 5px #f5deb3;
     }
     section {
+      margin-top: 3em;
+      margin-bottom: 3em;
       margin: 2em 0;
       background: rgba(0, 0, 0, 0.6);
       padding: 2em;
@@ -50,6 +51,10 @@
       font-size: 1.25em;
     }
     h2 {
+      font-size: 2em;
+
+      margin-bottom: 0.5em;
+      font-family: 'Cinzel', serif;
       text-align: center;
       position: relative;
       padding-bottom: 1em;
@@ -73,11 +78,14 @@
       100% { box-shadow: 0 0 20px rgba(255, 239, 184, 0.6); }
     }
     .character-gallery, .npc-gallery {
+      margin-top: 2em;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1.5em;
     }
     .character-card, .npc-card {
+      border: 2px solid rgba(210, 180, 140, 0.3);
+      box-shadow: 0 0 10px rgba(255, 215, 160, 0.15);
       position: relative;
       overflow: hidden;
       border-radius: 8px;
@@ -96,27 +104,40 @@
       border-radius: 8px;
     }
     .character-info, .npc-info {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      padding: 1em;
-      color: #ffffff;
-      text-shadow: 1px 1px 3px #000;
-      transition: all 0.3s ease;
-    }
+  background: rgba(0, 0, 0, 0.6);
+  padding: 1em;
+  color: #ffffff;
+  text-shadow: 1px 1px 3px #000;
+  transition: all 0.3s ease;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
     .character-card:hover .character-info, .npc-card:hover .npc-info {
       background: rgba(0, 0, 0, 0.8);
     }
     .character-info h3, .npc-info h3 {
+      font-family: 'Cinzel', serif;
       margin: 0;
       font-size: 1.3em;
     }
-    .character-info p, .npc-info p {
-      margin: 0.3em 0 0;
-      font-size: 0.95em;
-    }
-  </style>
+    .character-info p,
+.npc-info p {
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+  .npc-card .npc-info p {
+  font-size: 0.7em;
+}
+
+.npc-card .npc-info h3 {
+  font-size: 1.1em;
+}
+</style>
 </head>
 <body>
   <nav>
@@ -128,43 +149,46 @@
 
   <section id="characters">
     <h2>Character Roster</h2>
+      <p style="text-align: center; font-size: 1em; max-width: 700px; margin: 0 auto 1em auto; color: #ddd; font-family: Helvetica, Arial, sans-serif;">
+      These are the bold souls at the center of the story—adventurers, misfits, and legends in the making. Bound by fate and folly, they carve their paths through peril and prophecy.
+    </p>
     <div class="character-gallery">
-      <div class="character-card">
+      <div class="character-card" onclick="openModal('modal-thorne')">
         <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/character1.png" alt="Thorne Ironfist">
         <div class="character-info">
           <h3>Thorne Ironfist</h3>
           <p>Dwarven Paladin with a drinking problem</p>
         </div>
       </div>
-      <div class="character-card">
+      <div class="character-card" onclick="openModal('modal-lyra')">
         <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/character2.png" alt="Lyra Moonshade">
         <div class="character-info">
           <h3>Lyra Moonshade</h3>
           <p>Elven Rogue, knife enthusiast, drama queen</p>
         </div>
       </div>
-      <div class="character-card">
+      <div class="character-card" onclick="openModal('modal-milo')">
         <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/character3.png" alt="Milo Tinkerpop">
         <div class="character-info">
           <h3>Milo Tinkerpop</h3>
           <p>Gnome Artificer, builds things that explode</p>
         </div>
       </div>
-      <div class="character-card">
+      <div class="character-card" onclick="openModal('modal-kaelin')">
         <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/character4.png" alt="Kaelin Duskwhisper">
         <div class="character-info">
           <h3>Kaelin Duskwhisper</h3>
           <p>Half-Elf Warlock, bound to a cursed blade</p>
         </div>
       </div>
-      <div class="character-card">
+      <div class="character-card" onclick="openModal('modal-vexa')">
         <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/character5.png" alt="Vexa Coilfang">
         <div class="character-info">
           <h3>Vexa Coilfang</h3>
           <p>Yuan-Ti Sorcerer, seductive and venomous</p>
         </div>
       </div>
-      <div class="character-card">
+      <div class="character-card" onclick="openModal('modal-torgar')">
         <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/character6.png" alt="Torgar Wrybrew">
         <div class="character-info">
           <h3>Torgar Wrybrew</h3>
@@ -172,10 +196,57 @@
         </div>
       </div>
     </div>
-  </section>
+<div id="modal-lyra" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal-lyra')">&times;</span>
+    <h2>Lyra Moonshade</h2>
+    <p><strong>Class:</strong> Rogue (Arcane Trickster)</p>
+    <p><strong>Alignment:</strong> Chaotic Neutral</p>
+    <p><strong>Lore:</strong> Lyra is known as much for her deadly precision as her flair for the dramatic. She claims to be descended from moon elves—mostly to justify her flair for cloaks and mysterious entrances.</p>
+  </div>
+</div>
+<div id="modal-milo" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal-milo')">&times;</span>
+    <h2>Milo Tinkerpop</h2>
+    <p><strong>Class:</strong> Artificer (Alchemist)</p>
+    <p><strong>Alignment:</strong> Neutral Good</p>
+    <p><strong>Lore:</strong> A brilliant gnome inventor with a slightly alarming obsession with explosions. Milo’s creations sometimes save the day... sometimes singe off eyebrows.</p>
+  </div>
+</div>
+<div id="modal-kaelin" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal-kaelin')">&times;</span>
+    <h2>Kaelin Duskwhisper</h2>
+    <p><strong>Class:</strong> Warlock (Hexblade)</p>
+    <p><strong>Alignment:</strong> Neutral</p>
+    <p><strong>Lore:</strong> Bound to a blade that whispers in his sleep, Kaelin walks the line between free will and cursed destiny. He's chill with it. Mostly.</p>
+  </div>
+</div>
+<div id="modal-vexa" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal-vexa')">&times;</span>
+    <h2>Vexa Coilfang</h2>
+    <p><strong>Class:</strong> Sorcerer (Shadow Magic)</p>
+    <p><strong>Alignment:</strong> Chaotic Evil (but flirty)</p>
+    <p><strong>Lore:</strong> Half venom, half charm, all trouble. Vexa’s motives are unclear—but her powers definitely aren’t. Watch your step and your heart.</p>
+  </div>
+</div>
+<div id="modal-torgar" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal-torgar')">&times;</span>
+    <h2>Torgar Wrybrew</h2>
+    <p><strong>Class:</strong> Cleric (Forge Domain)</p>
+    <p><strong>Alignment:</strong> Lawful Neutral</p>
+    <p><strong>Lore:</strong> Brewmaster and blacksmith, Torgar invokes the flame of the forge and the power of hops. His blessings may burn or bless—but always come with a tankard.</p>
+  </div>
+</div>
 
   <section id="npcs">
     <h2>Major NPCs</h2>
+    <p style="text-align: center; font-size: .8em; max-width: 700px; margin: 0 auto 1em auto; color: #ddd; font-family: Helvetica, Arial, sans-serif;">
+      These influential figures shape the world around the party—schemers, sages, warlords, and wanderers who cross paths with fate. Some aid, some obstruct, and others blur the line entirely.
+    </p>
     <div class="npc-gallery">
   <div class="npc-card">
     <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/npcs/npc-lady-seraphine.png" alt="NPC 1">
@@ -263,6 +334,60 @@
   </div>
 </div>
   </section>
+  <div id="modal-thorne" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal-thorne')">&times;</span>
+      <h2>Thorne Ironfist</h2>
+      <p><strong>Class:</strong> Paladin (Oath of Redemption)</p>
+      <p><strong>Alignment:</strong> Lawful Good (mostly...)</p>
+      <p><strong>Lore:</strong> Once the pride of a mountain clan, Thorne carries the shame of a broken vow. Ale numbs the pain, but his hammer still remembers justice.</p>
+    </div>
+  </div>
+
+  <script>
+    function openModal(id) {
+      document.getElementById(id).style.display = "block";
+    }
+    function closeModal(id) {
+      document.getElementById(id).style.display = "none";
+    }
+    window.onclick = function(event) {
+      document.querySelectorAll('.modal').forEach(modal => {
+        if (event.target === modal) modal.style.display = "none";
+      });
+    }
+  </script>
+
+  <style>
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1001;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+    }
+    .modal-content {
+      background-color: #222;
+      margin: 10% auto;
+      padding: 2em;
+      border: 1px solid #d2b48c;
+      width: 80%;
+      max-width: 600px;
+      color: #fff;
+      border-radius: 8px;
+      text-shadow: none;
+    }
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      cursor: pointer;
+    }
+    .close:hover {
+      color: #fff;
+    }
+  </style>
 </body>
 </html>
-

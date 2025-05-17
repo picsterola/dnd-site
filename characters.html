@@ -72,13 +72,12 @@
       50% { box-shadow: 0 0 40px rgba(255, 239, 184, 1); }
       100% { box-shadow: 0 0 20px rgba(255, 239, 184, 0.6); }
     }
-
-    .character-gallery {
+    .character-gallery, .npc-gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1.5em;
     }
-    .character-card {
+    .character-card, .npc-card {
       position: relative;
       overflow: hidden;
       border-radius: 8px;
@@ -86,17 +85,17 @@
       min-height: 300px;
       transition: transform 0.3s ease;
     }
-    .character-card:hover {
+    .character-card:hover, .npc-card:hover {
       transform: scale(1.02);
     }
-    .character-card img {
+    .character-card img, .npc-card img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
       border-radius: 8px;
     }
-    .character-info {
+    .character-info, .npc-info {
       position: absolute;
       bottom: 0;
       width: 100%;
@@ -106,14 +105,14 @@
       text-shadow: 1px 1px 3px #000;
       transition: all 0.3s ease;
     }
-    .character-card:hover .character-info {
+    .character-card:hover .character-info, .npc-card:hover .npc-info {
       background: rgba(0, 0, 0, 0.8);
     }
-    .character-info h3 {
+    .character-info h3, .npc-info h3 {
       margin: 0;
       font-size: 1.3em;
     }
-    .character-info p {
+    .character-info p, .npc-info p {
       margin: 0.3em 0 0;
       font-size: 0.95em;
     }
@@ -174,5 +173,96 @@
       </div>
     </div>
   </section>
+
+  <section id="npcs">
+    <h2>Major NPCs</h2>
+    <div class="npc-gallery">
+  <div class="npc-card">
+    <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/npcs/npc-lady-seraphine.png" alt="NPC 1">
+    <div class="npc-info">
+      <h3>Lady Seraphine</h3>
+      <p>Mysterious patron of the party with a veiled past</p>
+    </div>
+  </div>
+  <div class="npc-card">
+    <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/npcs/npc-baron-redmar.png" alt="NPC 2">
+    <div class="npc-info">
+      <h3>Baron Redmar</h3>
+      <p>Ruthless noble with eyes on the throne</p>
+    </div>
+  </div>
+  <div class="npc-card">
+    <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/npcs/npc-elaris-the-sage.png" alt="NPC 3">
+    <div class="npc-info">
+      <h3>Elaris the Sage</h3>
+      <p>A cryptic scholar who knows too much</p>
+    </div>
+  </div>
+  <div class="npc-card">
+    <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/npcs/npc-captain-branth.png" alt="NPC 4">
+    <div class="npc-info">
+      <h3>Captain Branth</h3>
+      <p>Gruff mercenary commander with a heart of gold</p>
+    </div>
+  </div>
+  <div class="npc-card">
+    <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/npcs/npc-madame-nyla.png" alt="NPC 5">
+    <div class="npc-info">
+      <h3>Madame Nyla</h3>
+      <p>Seer of the Wastes with shifting visions of doom</p>
+    </div>
+  </div>
+  <div class="npc-card">
+    <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/npcs/npc-high-arcanist-volmir.png" alt="NPC 6">
+    <div class="npc-info">
+      <h3>High Arcanist Volmir</h3>
+      <p>Disgraced court mage turned outlaw conjurer</p>
+    </div>
+  </div>
+  <div class="npc-card">
+    <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/npcs/npc-sister-elenwen.png" alt="NPC 7">
+    <div class="npc-info">
+      <h3>Sister Elenwen</h3>
+      <p>Wandering healer with a divine secret</p>
+    </div>
+  </div>
+  <div class="npc-card">
+    <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/npcs/npc-gruk-the-unyielding.png" alt="NPC 8">
+    <div class="npc-info">
+      <h3>Gruk the Unyielding</h3>
+      <p>Orc chieftain with a code of ancient honor</p>
+    </div>
+  </div>
+  <div class="npc-card">
+    <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/npcs/npc-inquisitor-vale.png" alt="NPC 9">
+    <div class="npc-info">
+      <h3>Inquisitor Vale</h3>
+      <p>Fanatical pursuer of heretics and secrets</p>
+    </div>
+  </div>
+  <div class="npc-card">
+    <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/npcs/npc-archduke-malric.png" alt="NPC 10">
+    <div class="npc-info">
+      <h3>Archduke Malric</h3>
+      <p>Diplomatic snake with a velvet tongue</p>
+    </div>
+  </div>
+  <div class="npc-card">
+    <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/npcs/npc-faelan-duskwatch.png" alt="NPC 11">
+    <div class="npc-info">
+      <h3>Faelan Duskwatch</h3>
+      <p>Silent ranger who watches from the shadows</p>
+    </div>
+  </div>
+  <div class="npc-card">
+    <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/npcs/npc-jinx-whistletoe.png" alt="NPC 12">
+    <div class="npc-info">
+      <h3>Jinx Whistletoe</h3>
+      <p>Cheerful halfling informant who knows everybody</p>
+    </div>
+  </div>
+</div>
+  </section>
 </body>
 </html>
+

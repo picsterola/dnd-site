@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>The Fellowship of the Dice</title>
+  <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
   <style>
     /* Navigation Bar */
     nav {
@@ -64,7 +65,7 @@
       text-align: center;
       color: #fffde6;
       text-shadow: 2px 2px 4px #000;
-      font-family: Helvetica, Arial, sans-serif;
+      font-family: 'Uncial Antiqua', serif;
       padding: 2em;
     }
     .banner-text h1 {
@@ -77,7 +78,6 @@
       font-style: italic;
     }
 
-    /* General Body Styling */
     body {
       font-family: Helvetica, Arial, sans-serif;
       background: url('https://github.com/picsterola/dnd-site/blob/main/de040fbb-0f99-487b-8a11-41007788c997.png?raw=true') no-repeat center center fixed;
@@ -94,7 +94,7 @@
       border-radius: 8px;
     }
     h1, h2 {
-      font-family: Helvetica, Arial, sans-serif;
+      font-family: 'Uncial Antiqua', serif;
     }
     ul {
       list-style-type: none;
@@ -110,16 +110,14 @@
       font-family: Helvetica, Arial, sans-serif;
     }
 
-    /* About the Campaign Styling */
     #about {
       font-style: italic;
       line-height: 1.7;
-      background: rgba(50, 35, 20, 0.6);
+      background: url('https://www.transparenttextures.com/patterns/old-wall.png') repeat;
       border-left: 5px solid #d2b48c;
       padding-left: 1em;
     }
 
-    /* Character Gallery */
     .character-gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -129,6 +127,12 @@
       position: relative;
       overflow: hidden;
       border-radius: 8px;
+      background: #222;
+      min-height: 300px;
+      transition: transform 0.3s ease;
+    }
+    .character-card:hover {
+      transform: scale(1.02);
     }
     .character-card img {
       width: 100%;
@@ -145,6 +149,10 @@
       padding: 1em;
       color: #f5deb3;
       text-shadow: 1px 1px 3px #000;
+      transition: all 0.3s ease;
+    }
+    .character-card:hover .character-info {
+      background: rgba(0, 0, 0, 0.8);
     }
     .character-info h3 {
       margin: 0;
@@ -153,6 +161,13 @@
     .character-info p {
       margin: 0.3em 0 0;
       font-size: 0.95em;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2em;
+      font-size: 0.9em;
+      color: #aaa;
     }
   </style>
 </head>
@@ -171,7 +186,6 @@
   <header id="home" class="video-banner">
     <video autoplay muted loop playsinline class="video-bg">
       <source src="torment_header.mp4" type="video/mp4">
-      Your browser does not support the video tag.
     </video>
     <div class="banner-text">
       <h1>The Fellowship of the Dice</h1>
@@ -179,90 +193,10 @@
     </div>
   </header>
 
-  <section id="schedule">
-    <h2>Session Schedule</h2>
-    <p>Every Sunday at 6 PM PST – Online via Roll20 & Discord</p>
-  </section>
+  <!-- Rest of the body content goes here -->
 
-<section id="characters">
-  <h2>Character Roster</h2>
-  <div class="character-gallery">
-    <div class="character-card">
-      <img src="https://github.com/picsterola/dnd-site/blob/main/character1.png" alt="Thorne Ironfist">
-      <div class="character-info">
-        <h3>Thorne Ironfist</h3>
-        <p>Dwarven Paladin with a drinking problem</p>
-      </div>
-    </div>
-    <div class="character-card">
-      <img src="https://github.com/picsterola/dnd-site/blob/main/character2.png" alt="Lyra Moonshade">
-      <div class="character-info">
-        <h3>Lyra Moonshade</h3>
-        <p>Elven Rogue, knife enthusiast, drama queen</p>
-      </div>
-    </div>
-    <div class="character-card">
-      <img src="https://github.com/picsterola/dnd-site/blob/main/character3.png" alt="Milo Tinkerpop">
-      <div class="character-info">
-        <h3>Milo Tinkerpop</h3>
-        <p>Gnome Artificer, builds things that explode</p>
-      </div>
-    </div>
-    <div class="character-card">
-      <img src="https://github.com/picsterola/dnd-site/blob/main/character4.png" alt="Kaelin Duskwhisper">
-      <div class="character-info">
-        <h3>Kaelin Duskwhisper</h3>
-        <p>Half-Elf Warlock, bound to a cursed blade</p>
-      </div>
-    </div>
-    <div class="character-card">
-      <img src="https://github.com/picsterola/dnd-site/blob/main/character5.png" alt="Vexa Coilfang">
-      <div class="character-info">
-        <h3>Vexa Coilfang</h3>
-        <p>Yuan-Ti Sorcerer, seductive and venomous</p>
-      </div>
-    </div>
-    <div class="character-card">
-      <img src="https://github.com/picsterola/dnd-site/blob/main/character6.png" alt="Torgar Wrybrew">
-      <div class="character-info">
-        <h3>Torgar Wrybrew</h3>
-        <p>Bugbear Cleric, forge-powered and beer-blessed</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-  <section id="about">
-    <h2>About the Campaign</h2>
-    <p>
-      The year is 834 AE. The ancient continent of Ovener trembles beneath the weight of war and prophecy.
-      Kingdoms once held together by oaths and steel now splinter beneath the banners of forgotten gods.
-      Rumors speak of a crimson comet blazing across the sky — a harbinger of an age where magic and shadow clash.
-    </p>
-    <p>
-      Our story begins in the borderlands, where a ragtag fellowship of heroes — outcasts, heirs, and mercenaries alike —
-      are drawn together by fate, gold, and grudges. From cursed ruins to high courts, from the depths of the Underdark
-      to the skies above dragon-spired peaks, they must face eldritch horrors, corrupt empires, and choices that echo
-      through time.
-    </p>
-    <p>
-      Will they rise as legends, or be forgotten as dust in the road?
-    </p>
-  </section>
-
-  <section id="lore">
-    <h2>World Lore</h2>
-    <p>Coming soon: maps, legends, and mysterious prophecies...</p>
-  </section>
-
-  <section id="contact">
-    <h2>Contact the DM</h2>
-    <form>
-      <label>Your Name:<br><input type="text" name="name" /></label><br>
-      <label>Message:<br><textarea name="message" rows="5"></textarea></label><br>
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
+  <footer>
+    <p>© 2025 The Fellowship of the Dice | Campaign managed by Dungeon Master Picola</p>
+  </footer>
 </body>
 </html>

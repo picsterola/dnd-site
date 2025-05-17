@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>The Fellowship of the Dice</title>
-  <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
-  <style>
+    <style>
     nav {
       position: sticky;
       top: 0;
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(10, 10, 10, 0.85);
+      box-shadow: 0 0 10px #d2b48c;
       padding: 0.5em 0;
       z-index: 1000;
       border-bottom: 2px solid #d2b48c;
@@ -63,7 +63,7 @@
       text-align: center;
       color: #fffde6;
       text-shadow: 2px 2px 4px #000;
-      font-family: 'Uncial Antiqua', serif;
+      font-family: Helvetica, Arial, sans-serif;
       padding: 2em;
     }
     .banner-text h1 {
@@ -88,11 +88,12 @@
     section {
       margin: 2em 0;
       background: rgba(0, 0, 0, 0.6);
-      padding: 1em;
+      padding: 1.5em;
       border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
     }
     h1, h2 {
-      font-family: 'Uncial Antiqua', serif;
+      font-family: Helvetica, Arial, sans-serif;
     }
     ul {
       list-style-type: none;
@@ -167,6 +168,36 @@
       font-size: 0.9em;
       color: #aaa;
     }
+  @media (max-width: 600px) {
+      .banner-text h1 {
+        font-size: 2.5em;
+      }
+      .banner-text p {
+        font-size: 1.2em;
+      }
+    }
+
+    button {
+      background-color: #d2b48c;
+      border: none;
+      color: #000;
+      padding: 0.6em 1.2em;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #fff8dc;
+    }
+
+    footer {
+      background: #111;
+      border-top: 2px solid #d2b48c;
+      padding: 2em;
+      color: #aaa;
+      font-size: 0.9em;
+    }
   </style>
 </head>
 <body>
@@ -183,7 +214,7 @@
 
   <header id="home" class="video-banner">
     <video autoplay muted loop playsinline class="video-bg">
-      <source src="https://github.com/picsterola/dnd-site/blob/main/torment_header.mp4" type="video/mp4">
+      <source src="https://raw.githubusercontent.com/picsterola/dnd-site/main/torment_header.mp4" type="video/mp4">
     </video>
     <div class="banner-text">
       <h1>The Fellowship of the Dice</h1>
@@ -200,42 +231,42 @@
     <h2>Character Roster</h2>
     <div class="character-gallery">
       <div class="character-card">
-        <img src="https://github.com/picsterola/dnd-site/blob/main/character1.png" alt="Thorne Ironfist">
+        <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/character1.png" alt="Thorne Ironfist">
         <div class="character-info">
           <h3>Thorne Ironfist</h3>
           <p>Dwarven Paladin with a drinking problem</p>
         </div>
       </div>
       <div class="character-card">
-        <img src="https://github.com/picsterola/dnd-site/blob/main/character2.png" alt="Lyra Moonshade">
+        <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/character2.png" alt="Lyra Moonshade">
         <div class="character-info">
           <h3>Lyra Moonshade</h3>
           <p>Elven Rogue, knife enthusiast, drama queen</p>
         </div>
       </div>
       <div class="character-card">
-        <img src="https://github.com/picsterola/dnd-site/blob/main/character3.png" alt="Milo Tinkerpop">
+        <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/character3.png" alt="Milo Tinkerpop">
         <div class="character-info">
           <h3>Milo Tinkerpop</h3>
           <p>Gnome Artificer, builds things that explode</p>
         </div>
       </div>
       <div class="character-card">
-        <img src="https://github.com/picsterola/dnd-site/blob/main/character4.png" alt="Kaelin Duskwhisper">
+        <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/character4.png" alt="Kaelin Duskwhisper">
         <div class="character-info">
           <h3>Kaelin Duskwhisper</h3>
           <p>Half-Elf Warlock, bound to a cursed blade</p>
         </div>
       </div>
       <div class="character-card">
-        <img src="https://github.com/picsterola/dnd-site/blob/main/character5.png" alt="Vexa Coilfang">
+        <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/character5.png" alt="Vexa Coilfang">
         <div class="character-info">
           <h3>Vexa Coilfang</h3>
           <p>Yuan-Ti Sorcerer, seductive and venomous</p>
         </div>
       </div>
       <div class="character-card">
-        <img src="https://github.com/picsterola/dnd-site/blob/main/character6.png" alt="Torgar Wrybrew">
+        <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/character6.png" alt="Torgar Wrybrew">
         <div class="character-info">
           <h3>Torgar Wrybrew</h3>
           <p>Bugbear Cleric, forge-powered and beer-blessed</p>
@@ -253,7 +284,8 @@
 
   <section id="lore">
     <h2>World Lore</h2>
-    <p>Coming soon: maps, legends, and mysterious prophecies...</p>
+    <p>Behold the realm of Ovener. From the storm-lashed coastlines of Kharval to the sun-scorched peaks of Drak'Thul, the land is ancient and brimming with danger and prophecy.</p>
+    <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/fantasy_map.png" alt="Map of Ovener" style="width:100%; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.7); margin-top: 1em;">
   </section>
 
   <section id="contact">
@@ -270,3 +302,4 @@
   </footer>
 </body>
 </html>
+

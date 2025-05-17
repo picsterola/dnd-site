@@ -105,7 +105,7 @@
     }
     .character-info, .npc-info {
   background: rgba(0, 0, 0, 0.6);
-  padding: 1em;
+  padding: 0.75em;
   color: #ffffff;
   text-shadow: 1px 1px 3px #000;
   transition: all 0.3s ease;
@@ -115,6 +115,8 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  max-height: 100%;
+  box-sizing: border-box;
 }
     .character-card:hover .character-info, .npc-card:hover .npc-info {
       background: rgba(0, 0, 0, 0.8);
@@ -129,9 +131,11 @@
   white-space: normal;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  line-height: 1.4;
 }
   .npc-card .npc-info p {
-  font-size: 0.7em;
+  font-size: 0.75em;
+  margin-top: 0.3em;
 }
 
 .npc-card .npc-info h3 {
@@ -142,7 +146,7 @@
 <body>
   <nav>
     <ul>
-      <li><a href="index.html">Home</a></li>
+      <li><a href="https://picsterola.github.io/dnd-site/">Home</a></li>
       <li><a href="characters.html">Full Roster</a></li>
     </ul>
   </nav>
@@ -334,6 +338,27 @@
   </div>
 </div>
   </section>
+
+  <section id="the-story-so-far">
+    <h2>The Story So Far</h2>
+    <p style="text-align: center; font-size: .8em; max-width: 700px; margin: 0 auto 1em auto; color: #ddd; font-family: Helvetica, Arial, sans-serif;">
+      Beneath the fractured sky of Ovener lie the Four Great Realms: the war-scarred <strong>Duchy of Malric</strong>, the mist-veiled <strong>Sisterhood of the Shroud</strong>, the arcane-spined <strong>Tower-Cities of Vel Thalor</strong>, and the lawless expanse known only as <strong>The Wastes</strong>. Each is locked in an uneasy dance—treaties stitched with distrust, alliances traded like coin, and omens gathering like crows on the battlements.
+    </p>
+    <p style="text-align: center; font-size: .8em; max-width: 700px; margin: 1em auto; color: #ddd; font-family: Helvetica, Arial, sans-serif;">
+      In the north, <strong>Archduke Malric</strong> has declared himself Sovereign Regent, fracturing the old High Council and pressing his claim with steel and shadow. His chief operative is <strong>Baron Redmar</strong>, a ruthless warlord with noble blood but no love for diplomacy. <strong>Captain Branth</strong>, once their loyal enforcer, has since broken ranks, forming a mercenary cohort that defends the free peoples along the borderlands—if the price is right.
+    </p>
+    <p style="text-align: center; font-size: .8em; max-width: 700px; margin: 1em auto; color: #ddd; font-family: Helvetica, Arial, sans-serif;">
+      Beyond the veil of faith, <strong>Sister Elenwen</strong> wanders from ruin to ruin, healing wounds and whispering forgotten names of gods no longer worshiped. She is watched—always—from afar by <strong>Inquisitor Vale</strong>, whose zealotry burns brighter than any scripture. And somewhere between prophecy and madness, <strong>Madame Nyla</strong> speaks riddles that shift each time the wind turns.
+    </p>
+    <p style="text-align: center; font-size: .8em; max-width: 700px; margin: 1em auto; color: #ddd; font-family: Helvetica, Arial, sans-serif;">
+      Far to the west, the ancient orc tribes rally behind <strong>Gruk the Unyielding</strong>, who seeks to unite the old clans beneath one banner—not for conquest, but for survival. His emissary, <strong>Faelan Duskwatch</strong>, has already begun negotiating a fragile accord with <strong>Lady Seraphine</strong>, the enigmatic patron whose past may hold the key to peace... or catastrophe. Hovering over it all is <strong>High Arcanist Volmir</strong>, a fugitive from Vel Thalor whose grasp of forbidden magic threatens to tear open reality itself.
+    </p>
+    <p style="text-align: center; font-size: .8em; max-width: 700px; margin: 1em auto 0 auto; color: #ddd; font-family: Helvetica, Arial, sans-serif;">
+      And through the cracks in these alliances, <strong>Jinx Whistletoe</strong> skips—laughing, listening, and always knowing more than she lets on.
+    </p>
+  </section>
+
+  
   <div id="modal-thorne" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeModal('modal-thorne')">&times;</span>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>The Fellowship of the Dice</title>
+  <title>The Winds of Ovener</title>
     <style>
     nav {
       position: sticky;
@@ -23,7 +23,7 @@
     }
     nav li a {
       text-decoration: none;
-      color: #f5deb3;
+      color: #ffffff;
       font-weight: bold;
       font-family: Helvetica, Arial, sans-serif;
       transition: color 0.3s;
@@ -35,7 +35,7 @@
 
     .video-banner {
       position: relative;
-      height: 320px;
+      height: 624px;
       overflow: hidden;
       border-bottom: 2px solid #d2b48c;
       background: #000;
@@ -57,30 +57,39 @@
       object-fit: cover;
       z-index: 0;
     }
-    .banner-text {
-      position: relative;
-      z-index: 1;
+
+    .glow-title, .banner-subtitle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       text-align: center;
-      color: #fffde6;
-      text-shadow: 2px 2px 4px #000;
+      z-index: 1;
+      width: 100%;
+    }
+
+    .glow-title {
+      font-size: 6em;
+      animation: fadeInSlide 2s ease-out forwards;
+      color: #ffffff;
+      text-shadow: 0 0 10px #d2b48c, 0 0 20px #d2b48c, 0 0 30px #fff5cc;
       font-family: Helvetica, Arial, sans-serif;
-      padding: 2em;
     }
-    .banner-text h1 {
-      font-size: 4.5em;
-      margin: 0.2em 0;
-    }
-    .banner-text p {
+
+    .banner-subtitle {
+      top: 60%;
       font-size: 2em;
-      margin: 0.2em 0;
       font-style: italic;
+      color: #ffffff;
+      text-shadow: 0 0 10px #d2b48c, 0 0 20px #d2b48c;
+      animation: fadeInSlide 2s ease-out forwards;
+      font-family: Helvetica, Arial, sans-serif;
     }
 
     body {
       font-family: Helvetica, Arial, sans-serif;
-      background: url('https://github.com/picsterola/dnd-site/blob/main/de040fbb-0f99-487b-8a11-41007788c997.png?raw=true') no-repeat center center fixed;
-      background-size: cover;
-      color: #f5deb3;
+      background-color: #1a1a1a;
+      color: #ffffff;
       text-shadow: 1px 1px 2px #000;
       margin: 0;
       padding: 0 2em;
@@ -110,7 +119,6 @@
     }
 
     #about {
-      font-style: italic;
       line-height: 1.7;
       background: url('https://www.transparenttextures.com/patterns/old-wall.png') repeat;
       border-left: 5px solid #d2b48c;
@@ -146,7 +154,7 @@
       width: 100%;
       background: rgba(0, 0, 0, 0.6);
       padding: 1em;
-      color: #f5deb3;
+      color: #ffffff;
       text-shadow: 1px 1px 3px #000;
       transition: all 0.3s ease;
     }
@@ -166,15 +174,9 @@
       text-align: center;
       padding: 2em;
       font-size: 0.9em;
-      color: #aaa;
-    }
-  @media (max-width: 600px) {
-      .banner-text h1 {
-        font-size: 2.5em;
-      }
-      .banner-text p {
-        font-size: 1.2em;
-      }
+      color: #ffffff;
+      background: #111;
+      border-top: 2px solid #d2b48c;
     }
 
     button {
@@ -191,12 +193,26 @@
       background-color: #fff8dc;
     }
 
-    footer {
-      background: #111;
-      border-top: 2px solid #d2b48c;
-      padding: 2em;
-      color: #aaa;
-      font-size: 0.9em;
+    @keyframes fadeInSlide {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .sigil-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 200px;
+      height: auto;
+      opacity: 0.1;
+      z-index: 0.6;
     }
   </style>
 </head>
@@ -216,17 +232,16 @@
     <video autoplay muted loop playsinline class="video-bg">
       <source src="https://raw.githubusercontent.com/picsterola/dnd-site/main/torment_header.mp4" type="video/mp4">
     </video>
-    <div class="banner-text">
-      <h1>The Fellowship of the Dice</h1>
-      <p>Welcome to our D&D campaign site</p>
-    </div>
+    <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/sigil.png" alt="Campaign Sigil" class="sigil-overlay">
+    <h1 class="glow-title">The Winds of Ovener</h1>
+    <p class="banner-subtitle">A D&D Campaign</p>
   </header>
 
-  <section id="schedule">
-    <h2>Session Schedule</h2>
-    <p>Every Sunday at 6 PM PST – Online via Roll20 & Discord</p>
+  <section id="about">
+    <p>The year is 834 AE. The ancient continent of Ovener trembles beneath the weight of war and prophecy. Kingdoms once held together by oaths and steel now splinter beneath the banners of forgotten gods. Rumors speak of a crimson comet blazing across the sky — a harbinger of an age where magic and shadow clash.</p>
+    <p>Our story begins in the borderlands, where a ragtag fellowship of heroes — outcasts, heirs, and mercenaries alike — are drawn together by fate, gold, and grudges. From cursed ruins to high courts, from the depths of the Underdark to the skies above dragon-spired peaks, they must face eldritch horrors, corrupt empires, and choices that echo through time.</p>
+    <p>Will they rise as legends, or be forgotten as dust in the road?</p>
   </section>
-
   <section id="characters">
     <h2>Character Roster</h2>
     <div class="character-gallery">
@@ -274,13 +289,7 @@
       </div>
     </div>
   </section>
-
-  <section id="about">
-    <h2>About the Campaign</h2>
-    <p>The year is 834 AE. The ancient continent of Ovener trembles beneath the weight of war and prophecy. Kingdoms once held together by oaths and steel now splinter beneath the banners of forgotten gods. Rumors speak of a crimson comet blazing across the sky — a harbinger of an age where magic and shadow clash.</p>
-    <p>Our story begins in the borderlands, where a ragtag fellowship of heroes — outcasts, heirs, and mercenaries alike — are drawn together by fate, gold, and grudges. From cursed ruins to high courts, from the depths of the Underdark to the skies above dragon-spired peaks, they must face eldritch horrors, corrupt empires, and choices that echo through time.</p>
-    <p>Will they rise as legends, or be forgotten as dust in the road?</p>
-  </section>
+    </div>
 
   <section id="lore">
     <h2>World Lore</h2>
@@ -302,4 +311,3 @@
   </footer>
 </body>
 </html>
-

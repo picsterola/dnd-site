@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/picsterola/dnd-site/main/sigil.png">
+  <meta property="og:title" content="The Winds of Ovener">
+  <meta property="og:image" content="https://raw.githubusercontent.com/picsterola/dnd-site/main/sigil.png">
+  <meta property="og:description" content="An epic D&D campaign set in the ancient realm of Ovener.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://picsterola.github.io/dnd-site">
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>The Winds of Ovener</title>
+    <style>
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(10, 10, 10, 0.85);
+      box-shadow: 0 0 10px #d2b48c;
+      padding: 0.5em 0;
+      z-index: 1000;
+      border-bottom: 2px solid #d2b48c;
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      gap: 2em;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    nav li a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: bold;
+      font-family: 'Cinzel', serif;
+      transition: color 0.3s;
+    }
+    nav li a:hover {
+      color: #ffffff;
+      text-shadow: 0 0 5px #f5deb3;
+    }
+
+    .video-banner {
+      position: relative;
+      height: 624px;
+      overflow: hidden;
+      border-bottom: 2px solid #d2b48c;
+      background: #000;
+    }
+    .video-banner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 0.5;
+    }
+    .video-bg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .banner-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 1;
+      width: 100%;
+    }
+
+    .glow-title {
+      font-size: 6em;
+      animation: fadeInSlide 2s ease-out forwards;
+      color: #ffffff;
+      text-shadow: 0 0 10px #d2b48c, 0 0 20px #d2b48c, 0 0 30px #fff5cc;
+      font-family: 'Cinzel', serif;
+      margin: 0;
+    }
+
+    .banner-subtitle {
+      font-size: 2em;
+      font-style: italic;
+      color: #ffffff;
+      text-shadow: 0 0 10px #d2b48c, 0 0 20px #d2b48c;
+      animation: fadeInSlide 2s ease-out forwards;
+      font-family: 'Cinzel', serif';
+      margin: 0.2em 0 0;
+    }
+
+    html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Cinzel', serif;
+      font-family: Helvetica, Arial, sans-serif;
+      background-color: #1a1a1a;
+      color: #ffffff;
+      text-shadow: 1px 1px 2px #000;
+      margin: 0;
+      padding: 0 2em;
+    }
+    section {
+      margin: 2em 0;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 1.5em;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    }
+    h1, h2 {
+      text-align: center;
+      position: relative;
+      padding-bottom: 1em;
+    }
+
+    h2::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0;
+      width: 60px;
+      height: 4px;
+      background: #d2b48c;
+      border-radius: 2px;
+      box-shadow: 0 0 8px rgba(255, 239, 184, 0.5);
+      animation: shimmer 3s infinite ease-in-out;
+    }
+      font-family: 'Cinzel', serif;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      margin: 0.5em 0;
+    }
+    form input, form textarea {
+      width: 100%;
+      margin-bottom: 1em;
+      padding: 0.5em;
+      font-family: Helvetica, Arial, sans-serif;
+    }
+
+    #about {
+      box-shadow: 0 0 20px rgba(210, 180, 140, 0.2);
+      border: 30px solid transparent;
+      border-image: url('https://raw.githubusercontent.com/picsterola/dnd-site/main/decorative_border.png') 60 round;
+                  line-height: 1.7;
+      background: url('https://www.transparenttextures.com/patterns/old-wall.png') repeat;
+            padding: 1em;
+      font-size: 1.25em;
+    }
+
+    .character-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5em;
+    }
+    .character-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      background: #222;
+      min-height: 300px;
+      transition: transform 0.3s ease;
+    }
+    .character-card:hover {
+      transform: scale(1.02);
+    }
+    .character-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 8px;
+    }
+    .character-info {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 1em;
+      color: #ffffff;
+      text-shadow: 1px 1px 3px #000;
+      transition: all 0.3s ease;
+    }
+    .character-card:hover .character-info {
+      background: rgba(0, 0, 0, 0.8);
+    }
+    .character-info h3 {
+      margin: 0;
+      font-size: 1.3em;
+    }
+    .character-info p {
+      margin: 0.3em 0 0;
+      font-size: 0.95em;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2em;
+      font-size: 0.7em;
+      color: #ffffff;
+      background: #111;
+      border-top: 2px solid #d2b48c;
+    }
+
+    button {
+      background-color: #d2b48c;
+      border: none;
+      color: #000;
+      padding: 0.6em 1.2em;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #fff8dc;
+    }
+
+    @keyframes fadeInSlide {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    $1
+  transition: transform 0.5s ease-in-out;
+}
+
+.sigil-overlay:hover {
+  transform: translate(-50%, -50%) scale(1.05) rotate(1deg);
+}
+  @media (max-width: 768px) {
+  .glow-title {
+    font-size: 3em;
+  }
+  .banner-subtitle {
+    font-size: 1.2em;
+  }
+  .character-gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+  body {
+    padding: 0 1em;
+  }
+  section {
+    padding: 1em;
+  }
+  nav ul {
+    flex-wrap: wrap;
+    gap: 1em;
+  }
+  nav li a {
+    font-size: 0.7em;
+  }
+}
+@keyframes shimmer {
+  0% { box-shadow: 0 0 20px rgba(255, 239, 184, 0.6); }
+  50% { box-shadow: 0 0 40px rgba(255, 239, 184, 1); }
+  100% { box-shadow: 0 0 20px rgba(255, 239, 184, 0.6); }
+}
+  50% { box-shadow: 0 0 24px rgba(255, 239, 184, 1); }
+  100% { box-shadow: 0 0 12px rgba(255, 239, 184, 0.4); }
+}
+  50% { box-shadow: 0 0 16px rgba(255, 239, 184, 0.6); }
+  100% { box-shadow: 0 0 8px rgba(255, 239, 184, 0.2); }
+}
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#schedule">Schedule</a></li>
+      <li><a href="#characters">Characters</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#lore">Lore</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header id="home" class="video-banner">
+    <video autoplay muted loop playsinline class="video-bg">
+      <source src="https://raw.githubusercontent.com/picsterola/dnd-site/main/torment_header.mp4" type="video/mp4">
+    </video>
+    <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/sigil.png" alt="Campaign Sigil" class="sigil-overlay" style="opacity: 1; z-index: 2; left: 20%; transform: translate(-50%, -50%);">
+    <div class="banner-text">
+      <h1 class="glow-title">The Winds of Ovener</h1>
+      <p class="banner-subtitle">A D&D Campaign</p>
+    </div>
+  </header>
+
+  <section id="about" class="fade-in">
+    <p>The year is 834 AE. The ancient continent of Ovener trembles beneath the weight of war and prophecy. Kingdoms once held together by oaths and steel now splinter beneath the banners of forgotten gods. Rumors speak of a crimson comet blazing across the sky — a harbinger of an age where magic and shadow clash.</p>
+    <p>Our story begins in the borderlands, where a ragtag fellowship of heroes — outcasts, heirs, and mercenaries alike — are drawn together by fate, gold, and grudges. From cursed ruins to high courts, from the depths of the Underdark to the skies above dragon-spired peaks, they must face eldritch horrors, corrupt empires, and choices that echo through time.</p>
+    <p>Will they rise as legends, or be forgotten as dust in the road?</p>
+  </section>
+  <div style="position: relative; height: 400px; overflow: hidden; margin: 4em 0 2em 0;">
+  <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/landscape.png" alt="Landscape of Ovener" style="position: absolute; top: 0; left: 0; width: 100%; height: auto; min-height: 100%; object-fit: cover; transform: translateZ(0); will-change: transform;">
+</div>
+
+<section id="characters" class="fade-in" style="font-size: 1.5em;">
+    <h2>Character Roster</h2>
+    <div class="character-gallery">
+      <div class="character-card">
+        <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/character1.png" alt="Thorne Ironfist">
+        <div class="character-info">
+          <h3>Thorne Ironfist</h3>
+          <p>Dwarven Paladin with a drinking problem</p>
+        </div>
+      </div>
+      <div class="character-card">
+        <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/character2.png" alt="Lyra Moonshade">
+        <div class="character-info">
+          <h3>Lyra Moonshade</h3>
+          <p>Elven Rogue, knife enthusiast, drama queen</p>
+        </div>
+      </div>
+      <div class="character-card">
+        <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/character3.png" alt="Milo Tinkerpop">
+        <div class="character-info">
+          <h3>Milo Tinkerpop</h3>
+          <p>Gnome Artificer, builds things that explode</p>
+        </div>
+      </div>
+      <div class="character-card">
+        <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/character4.png" alt="Kaelin Duskwhisper">
+        <div class="character-info">
+          <h3>Kaelin Duskwhisper</h3>
+          <p>Half-Elf Warlock, bound to a cursed blade</p>
+        </div>
+      </div>
+      <div class="character-card">
+        <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/character5.png" alt="Vexa Coilfang">
+        <div class="character-info">
+          <h3>Vexa Coilfang</h3>
+          <p>Yuan-Ti Sorcerer, seductive and venomous</p>
+        </div>
+      </div>
+      <div class="character-card">
+        <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/character6.png" alt="Torgar Wrybrew">
+        <div class="character-info">
+          <h3>Torgar Wrybrew</h3>
+          <p>Bugbear Cleric, forge-powered and beer-blessed</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="lore" class="fade-in" style="font-size: 1.5em; text-align: center; line-height: 1.9; padding: 2em;">
+    <h2>World Lore</h2>
+        For millennia, Ovener was a land of balance — between arcane and divine, order and chaos, mortal and myth. The First Age saw the rise of the Aurelian Empire, a golden civilization that spread magic through leyline conduits. But power bred corruption, and the Cataclysm shattered the empire, unleashing rogue gods and magical storms. In the ages since, kingdoms have risen and fallen atop its bones. The Crimson Comet marks the fourth turning — a signal that Ovener stands once again at the edge of epochal change.</p>
+    <p>Behold the realm of Ovener. From the storm-lashed coastlines of Kharval to the sun-scorched peaks of Drak'Thul, the land is ancient and brimming with danger and prophecy.</p>
+    <div style="position: relative; text-align: center;">
+  <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/fantasy_map.png" alt="Map of Ovener" style="width:100%; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.7); margin-top: 1em;">
+  <div style="position: absolute; top: 30%; left: 40%; transform: translate(-50%, -50%); background: rgba(0, 0, 0, 0.6); color: #fff; padding: 0.5em; border-radius: 6px; font-size: 0.7em;"><span title='Once a glorious capital, now haunted by the echoes of betrayal and ghostly oaths.'>Virehall</span></div>
+  <div style="position: absolute; top: 20%; left: 65%; transform: translate(-50%, -50%); background: rgba(0, 0, 0, 0.6); color: #fff; padding: 0.5em; border-radius: 6px; font-size: 0.7em;"><span title='A fey-touched forest where time twists and spirits bargain with mortals.'>Bramblehollow</span></div>
+  <div style="position: absolute; top: 15%; left: 25%; transform: translate(-50%, -50%); background: rgba(0, 0, 0, 0.6); color: #fff; padding: 0.5em; border-radius: 6px; font-size: 0.7em;"><span title='An ancient forge-city powered by magma and the will of bound elementals.'>Emberdeep Forge</span></div>
+  <div style="position: absolute; top: 60%; left: 75%; transform: translate(-50%, -50%); background: rgba(0, 0, 0, 0.6); color: #fff; padding: 0.5em; border-radius: 6px; font-size: 0.7em;"><span title='A sunken temple where the tide reveals secrets and drowns sanity.'>Iskar's Wake</span></div>
+  <div style="position: absolute; top: 50%; left: 30%; transform: translate(-50%, -50%); background: rgba(0, 0, 0, 0.6); color: #fff; padding: 0.5em; border-radius: 6px; font-size: 0.7em;"><span title='A reality-warped canyon pulsing with unstable arcane energy.'>The Scar of Thal\'Zar</span></div>
+  <div style="position: absolute; top: 75%; left: 60%; transform: translate(-50%, -50%); background: rgba(0, 0, 0, 0.6); color: #fff; padding: 0.5em; border-radius: 6px; font-size: 0.7em;"><span title='Storm-lashed cliffs and merchant cities built on salt and secrets.'>Kharval Coast</span></div>
+  <div style="position: absolute; top: 10%; left: 20%; transform: translate(-50%, -50%); background: rgba(0, 0, 0, 0.6); color: #fff; padding: 0.5em; border-radius: 6px; font-size: 0.7em;"><span title='Sun-scorched peaks where dragons once ruled and storms still rage.'>Drak'Thul Peaks</span></div>
+</div>
+  <section id="locations" class="fade-in" style="font-size: 1.25em; text-align: center; background: rgba(0, 0, 0, 0.65); border-radius: 10px; padding: 2em; box-shadow: 0 0 20px rgba(255, 215, 130, 0.2);">
+    <h2>Places of Interest</h2>
+    <div style="margin-bottom: 2em;">
+  <h3 style="font-family: 'Cinzel', serif; font-size: 1.5em; color: #f5deb3; margin-bottom: 0.5em;">Virehall, the City of Broken Oaths</h3>
+  <p style="font-size: 1em; line-height: 1.6; max-width: 750px; margin: 0 auto;">    A haunted metropolis of gothic decay. Once a glorious capital, now it lies under eternal twilight, where ghostly banners still wave and betrayed spirits linger.</p>
+</div>
+
+    <div style="margin-bottom: 2em;">
+  <h3 style="font-family: 'Cinzel', serif; font-size: 1.5em; color: #f5deb3; margin-bottom: 0.5em;">Bramblehollow</h3>
+  <p style="font-size: 1em; line-height: 1.6; max-width: 750px; margin: 0 auto;">A fey-touched forest valley where time bends and mischievous spirits whisper riddles. Mortals who wander here may never return the same.</p>
+</div>
+
+    <div style="margin-bottom: 2em;">
+  <h3 style="font-family: 'Cinzel', serif; font-size: 1.5em; color: #f5deb3; margin-bottom: 0.5em;">Emberdeep Forge</h3>
+  <p style="font-size: 1em; line-height: 1.6; max-width: 750px; margin: 0 auto;">An ancient forge-city beneath the Ashen Chasm, where dwarves and fire elementals craft weapons from living magma. Rumors speak of a chained primordial below.</p>
+</div>
+
+    <div style="margin-bottom: 2em;">
+  <h3 style="font-family: 'Cinzel', serif; font-size: 1.5em; color: #f5deb3; margin-bottom: 0.5em;">Iskar's Wake</h3>
+  <p style="font-size: 1em; line-height: 1.6; max-width: 750px; margin: 0 auto;">A sunken temple visible only at low tide, its halls filled with coral, drowned relics, and echoes of the sea god’s dreams.</p>
+</div>
+
+    <div style="margin-bottom: 2em;">
+  <h3 style="font-family: 'Cinzel', serif; font-size: 1.5em; color: #f5deb3; margin-bottom: 0.5em;">The Scar of Thal'Zar</h3>
+  <p style="font-size: 1em; line-height: 1.6; max-width: 750px; margin: 0 auto;">A reality-warped canyon where ancient magics collided. Spells fizzle unpredictably and time falters. At its core, a pulsing crystal heart beats with lost power.</p>
+</div>
+  </section>
+
+  <section id="contact" class="fade-in">
+    <h2>Contact the DM</h2>
+    <form>
+      <label>Your Name:<br><input type="text" name="name" /></label><br>
+      <label>Message:<br><textarea name="message" rows="5"></textarea></label><br>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 The Fellowship of the Dice | Campaign managed by Dungeon Master Picola</p>
+  </footer>
+<script>
+const fadeEls = document.querySelectorAll('.fade-in');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+});
+fadeEls.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

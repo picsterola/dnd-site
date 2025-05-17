@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>The Fellowship of the Dice</title>
   <style>
+    /* Sticky Navigation Bar */
     nav {
       position: sticky;
       top: 0;
@@ -35,20 +36,47 @@
       text-shadow: 0 0 5px #f5deb3;
     }
 
+    /* Header Banner */
+    .banner {
+      background: url('./banner-map.png') no-repeat center center;
+      background-size: cover;
+      height: 320px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      border-bottom: 2px solid #d2b48c;
+    }
+
+    .banner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    .banner-text {
+      position: relative;
+      text-align: center;
+      color: #f5deb3;
+      text-shadow: 1px 1px 3px #000;
+    }
+
+    .banner-text h1,
+    .banner-text p {
+      margin: 0.25em 0;
+      font-family: Helvetica, Arial, sans-serif;
+    }
+
+    /* Body & Sections */
     body {
       font-family: Helvetica, Arial, sans-serif;
-      background: url('https://github.com/picsterola/dnd-site/blob/main/ef2dde75-c727-4966-a95b-cdbbed9e08c0.png?raw=true') no-repeat center center fixed;
+      background: url('https://github.com/picsterola/dnd-site/blob/main/de040fbb-0f99-487b-8a11-41007788c997.png?raw=true') no-repeat center center fixed;
       background-size: cover;
       color: #f5deb3;
       text-shadow: 1px 1px 2px #000;
       margin: 0;
       padding: 0 2em;
-    }
-
-    header {
-      text-align: center;
-      padding: 2em 0;
-      border-bottom: 2px solid #d2b48c;
     }
 
     section {
@@ -90,9 +118,11 @@
     </ul>
   </nav>
 
-  <header id="home">
-    <h1>The Fellowship of the Dice</h1>
-    <p>Welcome to our D&D campaign site</p>
+  <header id="home" class="banner">
+    <div class="banner-text">
+      <h1>The Fellowship of the Dice</h1>
+      <p>Welcome to our D&D campaign site</p>
+    </div>
   </header>
 
   <section id="schedule">
@@ -117,10 +147,4 @@
   <section id="contact">
     <h2>Contact the DM</h2>
     <form>
-      <label>Your Name:<br><input type="text" name="name" /></label><br>
-      <label>Message:<br><textarea name="message" rows="5"></textarea></label><br>
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
-</body>
-</html>
+      <label>Your Name:<br><input type="text" name="name" /></labe

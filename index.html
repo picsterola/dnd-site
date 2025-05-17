@@ -44,6 +44,14 @@
       border-bottom: 2px solid #d2b48c;
     }
 
+    .video-banner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4); /* dark overlay for readability */
+      z-index: 0.5;
+    }
+
     .video-bg {
       position: absolute;
       top: 50%;
@@ -54,78 +62,3 @@
       object-fit: cover;
       z-index: 0;
     }
-
-    .banner-text {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      color: #fffde6;
-      text-shadow: 2px 2px 4px #000;
-      font-family: Helvetica, Arial, sans-serif;
-      padding: 2em;
-    }
-
-    .banner-text h1 {
-      font-size: 4.5em;
-      letter-spacing: 1px;
-      margin: 0.2em 0;
-    }
-
-    .banner-text p {
-      font-size: 2em;
-      margin: 0.2em 0;
-      font-style: italic;
-    }
-
-    /* Page Background & Sections */
-    body {
-      font-family: Helvetica, Arial, sans-serif;
-      background: url('https://github.com/picsterola/dnd-site/blob/main/de040fbb-0f99-487b-8a11-41007788c997.png?raw=true') no-repeat center center fixed;
-      background-size: cover;
-      color: #f5deb3;
-      text-shadow: 1px 1px 2px #000;
-      margin: 0;
-      padding: 0 2em;
-    }
-
-    section {
-      margin: 2em 0;
-      background: rgba(0, 0, 0, 0.6);
-      padding: 1em;
-      border-radius: 8px;
-    }
-
-    h1, h2 {
-      font-family: Helvetica, Arial, sans-serif;
-    }
-
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
-
-    li {
-      margin: 0.5em 0;
-    }
-
-    form input, form textarea {
-      width: 100%;
-      margin-bottom: 1em;
-      padding: 0.5em;
-      font-family: Helvetica, Arial, sans-serif;
-    }
-  </style>
-</head>
-<body>
-  <nav>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#schedule">Schedule</a></li>
-      <li><a href="#characters">Characters</a></li>
-      <li><a href="#lore">Lore</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <header i
-

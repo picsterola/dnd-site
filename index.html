@@ -13,7 +13,6 @@
       z-index: 1000;
       border-bottom: 2px solid #d2b48c;
     }
-
     nav ul {
       display: flex;
       justify-content: center;
@@ -22,7 +21,6 @@
       margin: 0;
       padding: 0;
     }
-
     nav li a {
       text-decoration: none;
       color: #f5deb3;
@@ -30,13 +28,12 @@
       font-family: Helvetica, Arial, sans-serif;
       transition: color 0.3s;
     }
-
     nav li a:hover {
       color: #ffffff;
       text-shadow: 0 0 5px #f5deb3;
     }
 
-    /* Video Header */
+    /* Video Banner */
     .video-banner {
       position: relative;
       height: 320px;
@@ -44,7 +41,6 @@
       border-bottom: 2px solid #d2b48c;
       background: #000;
     }
-
     .video-banner::after {
       content: "";
       position: absolute;
@@ -52,7 +48,6 @@
       background: rgba(0, 0, 0, 0.4);
       z-index: 0.5;
     }
-
     .video-bg {
       position: absolute;
       top: 50%;
@@ -63,7 +58,6 @@
       object-fit: cover;
       z-index: 0;
     }
-
     .banner-text {
       position: relative;
       z-index: 1;
@@ -73,19 +67,17 @@
       font-family: Helvetica, Arial, sans-serif;
       padding: 2em;
     }
-
     .banner-text h1 {
       font-size: 4.5em;
-      letter-spacing: 1px;
       margin: 0.2em 0;
     }
-
     .banner-text p {
       font-size: 2em;
       margin: 0.2em 0;
       font-style: italic;
     }
 
+    /* General Body Styling */
     body {
       font-family: Helvetica, Arial, sans-serif;
       background: url('https://github.com/picsterola/dnd-site/blob/main/de040fbb-0f99-487b-8a11-41007788c997.png?raw=true') no-repeat center center fixed;
@@ -95,27 +87,22 @@
       margin: 0;
       padding: 0 2em;
     }
-
     section {
       margin: 2em 0;
       background: rgba(0, 0, 0, 0.6);
       padding: 1em;
       border-radius: 8px;
     }
-
     h1, h2 {
       font-family: Helvetica, Arial, sans-serif;
     }
-
     ul {
       list-style-type: none;
       padding: 0;
     }
-
     li {
       margin: 0.5em 0;
     }
-
     form input, form textarea {
       width: 100%;
       margin-bottom: 1em;
@@ -130,6 +117,42 @@
       background: rgba(50, 35, 20, 0.6);
       border-left: 5px solid #d2b48c;
       padding-left: 1em;
+    }
+
+    /* Character Gallery */
+    .character-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5em;
+    }
+    .character-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+    .character-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 8px;
+    }
+    .character-info {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 1em;
+      color: #f5deb3;
+      text-shadow: 1px 1px 3px #000;
+    }
+    .character-info h3 {
+      margin: 0;
+      font-size: 1.3em;
+    }
+    .character-info p {
+      margin: 0.3em 0 0;
+      font-size: 0.95em;
     }
   </style>
 </head>
@@ -163,11 +186,30 @@
 
   <section id="characters">
     <h2>Character Roster</h2>
-    <ul>
-      <li><strong>Thorne Ironfist</strong> – Dwarven Paladin with a drinking problem</li>
-      <li><strong>Lyra Moonshade</strong> – Elven Rogue, knife enthusiast, drama queen</li>
-      <li><strong>Milo Tinkerpop</strong> – Gnome Artificer, builds things that explode</li>
-    </ul>
+    <div class="character-gallery">
+      <div class="character-card">
+        <img src="character1.png" alt="Thorne Ironfist">
+        <div class="character-info">
+          <h3>Thorne Ironfist</h3>
+          <p>Dwarven Paladin with a drinking problem</p>
+        </div>
+      </div>
+      <div class="character-card">
+        <img src="character2.png" alt="Lyra Moonshade">
+        <div class="character-info">
+          <h3>Lyra Moonshade</h3>
+          <p>Elven Rogue, knife enthusiast, drama queen</p>
+        </div>
+      </div>
+      <div class="character-card">
+        <img src="character3.png" alt="Milo Tinkerpop">
+        <div class="character-info">
+          <h3>Milo Tinkerpop</h3>
+          <p>Gnome Artificer, builds things that explode</p>
+        </div>
+      </div>
+      <!-- Add 3 more cards here as needed -->
+    </div>
   </section>
 
   <section id="about">
@@ -203,4 +245,3 @@
   </section>
 </body>
 </html>
-

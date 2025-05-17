@@ -4,6 +4,37 @@
   <meta charset="UTF-8">
   <title>The Fellowship of the Dice</title>
   <style>
+    nav {
+  position: sticky;
+  top: 0;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 0.5em 0;
+  z-index: 1000;
+  border-bottom: 2px solid #d2b48c;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li a {
+  text-decoration: none;
+  color: #f5deb3;
+  font-weight: bold;
+  font-family: 'Papyrus', fantasy;
+  transition: color 0.3s;
+}
+
+nav li a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 5px #f5deb3;
+}
+
     body {
       font-family: 'Garamond', serif;
       background: url('https://raw.githubusercontent.com/picsterola/dnd-site/main/de040fbb-0f99-487b-8a11-41007788c997.png') no-repeat center center fixed;
@@ -43,17 +74,28 @@
   </style>
 </head>
 <body>
+  <nav>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#schedule">Schedule</a></li>
+    <li><a href="#characters">Characters</a></li>
+    <li><a href="#lore">Lore</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
   <header>
     <h1>The Fellowship of the Dice</h1>
     <p>Welcome to our D&D campaign site</p>
   </header>
 
   <section>
+<section id="schedule">...</section>
     <h2>Session Schedule</h2>
     <p>Every Sunday at 6 PM PST – Online via Roll20 & Discord</p>
   </section>
 
   <section>
+<section id="characters">...</section>
     <h2>Character Roster</h2>
     <ul>
       <li><strong>Thorne Ironfist</strong> – Dwarven Paladin with a drinking problem</li>
@@ -61,8 +103,9 @@
       <li><strong>Milo Tinkerpop</strong> – Gnome Artificer, builds things that explode</li>
     </ul>
   </section>
-
+<section id="lore">...</section>
   <section>
+    <section id="contact">...</section>
     <h2>Contact the DM</h2>
     <form>
       <label>Your Name:<br><input type="text" name="name" /></label><br>

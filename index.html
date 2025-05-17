@@ -42,13 +42,14 @@
       height: 320px;
       overflow: hidden;
       border-bottom: 2px solid #d2b48c;
+      background: #000; /* fallback color */
     }
 
     .video-banner::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.4); /* dark overlay for readability */
+      background: rgba(0, 0, 0, 0.4);
       z-index: 0.5;
     }
 
@@ -62,3 +63,116 @@
       object-fit: cover;
       z-index: 0;
     }
+
+    .banner-text {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      color: #fffde6;
+      text-shadow: 2px 2px 4px #000;
+      font-family: Helvetica, Arial, sans-serif;
+      padding: 2em;
+    }
+
+    .banner-text h1 {
+      font-size: 4.5em;
+      letter-spacing: 1px;
+      margin: 0.2em 0;
+    }
+
+    .banner-text p {
+      font-size: 2em;
+      margin: 0.2em 0;
+      font-style: italic;
+    }
+
+    /* Page Styling */
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+      background: url('https://github.com/picsterola/dnd-site/blob/main/de040fbb-0f99-487b-8a11-41007788c997.png?raw=true') no-repeat center center fixed;
+      background-size: cover;
+      color: #f5deb3;
+      text-shadow: 1px 1px 2px #000;
+      margin: 0;
+      padding: 0 2em;
+    }
+
+    section {
+      margin: 2em 0;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 1em;
+      border-radius: 8px;
+    }
+
+    h1, h2 {
+      font-family: Helvetica, Arial, sans-serif;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin: 0.5em 0;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      margin-bottom: 1em;
+      padding: 0.5em;
+      font-family: Helvetica, Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#schedule">Schedule</a></li>
+      <li><a href="#characters">Characters</a></li>
+      <li><a href="#lore">Lore</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header id="home" class="video-banner">
+    <video autoplay muted loop playsinline class="video-bg">
+      <source src="torment_header.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="banner-text">
+      <h1>The Fellowship of the Dice</h1>
+      <p>Welcome to our D&D campaign site</p>
+    </div>
+  </header>
+
+  <section id="schedule">
+    <h2>Session Schedule</h2>
+    <p>Every Sunday at 6 PM PST – Online via Roll20 & Discord</p>
+  </section>
+
+  <section id="characters">
+    <h2>Character Roster</h2>
+    <ul>
+      <li><strong>Thorne Ironfist</strong> – Dwarven Paladin with a drinking problem</li>
+      <li><strong>Lyra Moonshade</strong> – Elven Rogue, knife enthusiast, drama queen</li>
+      <li><strong>Milo Tinkerpop</strong> – Gnome Artificer, builds things that explode</li>
+    </ul>
+  </section>
+
+  <section id="lore">
+    <h2>World Lore</h2>
+    <p>Coming soon: maps, legends, and mysterious prophecies...</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact the DM</h2>
+    <form>
+      <label>Your Name:<br><input type="text" name="name" /></label><br>
+      <label>Message:<br><textarea name="message" rows="5"></textarea></label><br>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+</body>
+</html>

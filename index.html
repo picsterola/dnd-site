@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>The Fellowship of the Dice</title>
   <style>
-    /* Sticky Navigation Bar */
+    /* Navigation Bar */
     nav {
       position: sticky;
       top: 0;
@@ -36,33 +36,33 @@
       text-shadow: 0 0 5px #f5deb3;
     }
 
-    /* Header Banner */
-    .banner {
-      background: url('./TormentGIF.gif') no-repeat center center;
-      background-size: cover;
-      height: 320px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    /* Video Header Styling */
+    .video-banner {
       position: relative;
+      height: 320px;
+      overflow: hidden;
       border-bottom: 2px solid #d2b48c;
     }
 
-    .banner::after {
-  background: rgba(0, 0, 0, 0.55); /* darker */
-}
+    .video-bg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      z-index: 0;
+    }
 
-.banner-text {
-  color: #fffde6;
-  font-weight: bold;
-  text-shadow: 2px 2px 4px #000;
-}
-
-
-    .banner-text h1,
-    .banner-text p {
-      margin: 0.25em 0;
+    .banner-text {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      color: #fffde6;
+      text-shadow: 2px 2px 4px #000;
       font-family: Helvetica, Arial, sans-serif;
+      padding: 2em;
     }
 
     /* Body & Sections */
@@ -115,7 +115,11 @@
     </ul>
   </nav>
 
-  <header id="home" class="banner">
+  <header id="home" class="video-banner">
+    <video autoplay muted loop playsinline class="video-bg">
+      <source src="torment_header.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
     <div class="banner-text">
       <h1>The Fellowship of the Dice</h1>
       <p>Welcome to our D&D campaign site</p>
@@ -144,4 +148,10 @@
   <section id="contact">
     <h2>Contact the DM</h2>
     <form>
-      <label>Your Name:<br><input type="text" name="name" /></labe
+      <label>Your Name:<br><input type="text" name="name" /></label><br>
+      <label>Message:<br><textarea name="message" rows="5"></textarea></label><br>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+</body>
+</html>

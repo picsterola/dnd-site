@@ -164,6 +164,22 @@
 			.npc-card .npc-info h3 {
 			  font-size: 1.1em;
 			}
+
+          /* ----- Footer ----- */
+          .site-footer {
+              background: rgba(10,10,10,0.9);     /* same tone as nav bar */
+              border-top: 2px solid #d2b48c;      /* tan accent */
+              padding: 1.5em 0;
+              text-align: center;
+              font-size: 0.9em;
+}
+          .site-footer a {
+              color: #d2b48c;
+              text-decoration: none;
+}
+          .site-footer a:hover {
+              text-shadow: 0 0 5px #f5deb3;
+}
 		</style>
 	</head>
 	<body>
@@ -444,6 +460,26 @@
 				  color: #fff;
 				}
 			</style>
-		</section>
-	</body>
+        </section>
+<!-- Site footer -->
+<footer class="site-footer fade-in">
+  <nav>
+    <a href="https://picsterola.github.io/dnd-site/">Home</a> |
+    <a href="characters.html">Characters</a>
+  </nav>
+  <p>© 2025 The Fellowship of the Dice | Campaign managed by Dungeon Master Picola</p>
+</footer>
+      <script>
+const fadeEls = document.querySelectorAll('.fade-in');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target); // fade happens once
+    }
+  });
+});
+fadeEls.forEach(el => observer.observe(el));
+</script>
+    </body>
 </html>

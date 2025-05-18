@@ -93,9 +93,32 @@
 			      min-height: 300px;
 			      transition: transform 0.3s ease;
 			    }
+                /* Story cards in "The Story So Far" */
+                .story-card {
+                background: #2a2a2a;                 /* charcoal */
+                border-radius: 0px;
+                padding: 1.25em;
+                text-align: center;
+                }
+
+                /* Punchier headings inside each story card */
+                .story-card h3 {
+                font-family: 'Cinzel', serif;     /* keep the fantasy font */
+                font-size: 1.2em;                 /* bigger */
+                color: #d2b48c;                   /* tan */
+                text-shadow: 0 0 6px rgba(210,180,140,0.45);  /* soft glow */
+                margin-top: 0;                    /* no extra gap at top */
+                }
+
 			    .character-card:hover, .npc-card:hover {
 			      transform: scale(1.02);
 			    }
+
+                .story-card p {
+                font-size: .8em;   /* match character-card blurbs */
+                line-height: 1.4;    /* keep it cozy */
+                }
+
 			    .character-card img, .npc-card img {
 			      width: 100%;
 			      height: 100%;
@@ -340,30 +363,31 @@
 			</section>
 
 			<section id="the-story-so-far">
-				<h2>The Story So Far</h2>
-				<p style="text-align: center; font-size: .8em; max-width: 700px; margin: 0 auto 1em auto; color: #ddd; font-family: Helvetica, Arial, sans-serif;">
-					Beneath the fractured sky of Ovener lie the Four Great Realms: the war-scarred <strong>Duchy of Malric</strong>, the mist-veiled <strong>Sisterhood of the Shroud</strong>, the arcane-spined
-					<strong>Tower-Cities of Vel Thalor</strong>, and the lawless expanse known only as <strong>The Wastes</strong>. Each is locked in an uneasy dance—treaties stitched with distrust, alliances traded like coin, and omens
-					gathering like crows on the battlements.
-				</p>
-				<p style="text-align: center; font-size: .8em; max-width: 700px; margin: 1em auto; color: #ddd; font-family: Helvetica, Arial, sans-serif;">
-					In the north, <strong>Archduke Malric</strong> has declared himself Sovereign Regent, fracturing the old High Council and pressing his claim with steel and shadow. His chief operative is <strong>Baron Redmar</strong>, a
-					ruthless warlord with noble blood but no love for diplomacy. <strong>Captain Branth</strong>, once their loyal enforcer, has since broken ranks, forming a mercenary cohort that defends the free peoples along the
-					borderlands—if the price is right.
-				</p>
-				<p style="text-align: center; font-size: .8em; max-width: 700px; margin: 1em auto; color: #ddd; font-family: Helvetica, Arial, sans-serif;">
-					Beyond the veil of faith, <strong>Sister Elenwen</strong> wanders from ruin to ruin, healing wounds and whispering forgotten names of gods no longer worshiped. She is watched—always—from afar by
-					<strong>Inquisitor Vale</strong>, whose zealotry burns brighter than any scripture. And somewhere between prophecy and madness, <strong>Madame Nyla</strong> speaks riddles that shift each time the wind turns.
-				</p>
-				<p style="text-align: center; font-size: .8em; max-width: 700px; margin: 1em auto; color: #ddd; font-family: Helvetica, Arial, sans-serif;">
-					Far to the west, the ancient orc tribes rally behind <strong>Gruk the Unyielding</strong>, who seeks to unite the old clans beneath one banner—not for conquest, but for survival. His emissary,
-					<strong>Faelan Duskwatch</strong>, has already begun negotiating a fragile accord with <strong>Lady Seraphine</strong>, the enigmatic patron whose past may hold the key to peace... or catastrophe. Hovering over it all is
-					<strong>High Arcanist Volmir</strong>, a fugitive from Vel Thalor whose grasp of forbidden magic threatens to tear open reality itself.
-				</p>
-				<p style="text-align: center; font-size: .8em; max-width: 700px; margin: 1em auto 0 auto; color: #ddd; font-family: Helvetica, Arial, sans-serif;">
-					And through the cracks in these alliances, <strong>Jinx Whistletoe</strong> skips—laughing, listening, and always knowing more than she lets on.
-				</p>
-			</section>
+  <h2>The Story So Far</h2>
+  <!-- Story card grid -->
+  <div class="story-cards">
+    <!-- Card 1 -->
+    <div class="story-card">
+      <h3>The Four Great Realms</h3>
+      <p>Beneath a fractured sky lie four powers locked in fragile balance – the war‑scarred <strong>Duchy of Malric</strong>, the mist‑veiled <strong>Sisterhood of the Shroud</strong>, the arcane‑spined <strong>Tower‑Cities of Vel Thalor</strong>, and the lawless expanse known only as <strong>The Wastes</strong>.</p>
+    </div>
+    <!-- Card 2 -->
+    <div class="story-card">
+      <h3>Rise of Archduke Malric</h3>
+      <p>In the north, <strong>Archduke Malric</strong> has declared himself Sovereign Regent. His ruthless enforcer <strong>Baron Redmar</strong> fans the flames of war, while the once‑loyal <strong>Captain Branth</strong> now defends the borderlands as a sellsword commander.</p>
+    </div>
+    <!-- Card 3 -->
+    <div class="story-card">
+      <h3>Faith &amp; Fear</h3>
+      <p>Wandering healer <strong>Sister Elenwen</strong> revives forgotten gods, shadowed by zealot <strong>Inquisitor Vale</strong>. Meanwhile the cryptic <strong>Madame Nyla</strong> murmurs prophecies that change with every gust of wind.</p>
+    </div>
+    <!-- Card 4 -->
+    <div class="story-card">
+      <h3>Orc Alliance &amp; Forbidden Magic</h3>
+      <p><strong>Gruk the Unyielding</strong> seeks to unite the orc clans for survival, aided by scout <strong>Faelan Duskwatch</strong> and diplomat <strong>Lady Seraphine</strong>. Lurking beyond them all is <strong>High Arcanist Volmir</strong>, whose forbidden sorcery threatens to rend reality itself – and through every crack dances <strong>Jinx Whistletoe</strong>, laughing with secrets.</p>
+    </div>
+  </div>
+</section>
 
 			<div id="modal-thorne" class="modal">
 				<div class="modal-content">
@@ -423,4 +447,3 @@
 		</section>
 	</body>
 </html>
-

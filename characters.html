@@ -1,418 +1,425 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Character Roster – The Winds of Ovener</title>
-  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/picsterola/dnd-site/main/sigil.png">
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
-  <style>
-    body { font-family: 'Helvetica', Arial, sans-serif;
-      background-color: #1a1a1a;
-      color: #ffffff;
-      text-shadow: 1px 1px 2px #000;
-      margin: 0;
-      padding: 0 2em;
-    }
-    nav {
-      position: sticky;
-      top: 0;
-      background: rgba(10, 10, 10, 0.85);
-      box-shadow: 0 0 10px #d2b48c;
-      padding: 0.5em 0;
-      z-index: 1000;
-      border-bottom: 2px solid #d2b48c;
-    }
-    nav ul {
-      display: flex;
-      justify-content: center;
-      gap: 2em;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-    nav li a {
-      text-decoration: none;
-      color: #ffffff;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-    nav li a:hover {
-      color: #ffffff;
-      text-shadow: 0 0 5px #f5deb3;
-    }
-    section {
-      margin-top: 3em;
-      margin-bottom: 3em;
-      margin: 2em 0;
-      background: rgba(0, 0, 0, 0.6);
-      padding: 2em;
-      border-radius: 8px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
-      font-size: 1.25em;
-    }
-    h2 {
-      font-size: 2em;
+	<head>
+		<meta charset="UTF-8" />
+		<title>Character Roster – The Winds of Ovener</title>
+		<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/picsterola/dnd-site/main/sigil.png" />
+		<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet" />
+		<style>
+			    body { font-family: 'Helvetica', Arial, sans-serif;
+			      background-color: #1a1a1a;
+			      color: #ffffff;
+			      text-shadow: 1px 1px 2px #000;
+			      margin: 0;
+			      padding: 0 2em;
+			    }
+			    nav {
+			      position: sticky;
+			      top: 0;
+			      background: rgba(10, 10, 10, 0.85);
+			      box-shadow: 0 0 10px #d2b48c;
+			      padding: 0.5em 0;
+			      z-index: 1000;
+			      border-bottom: 2px solid #d2b48c;
+			    }
+			    nav ul {
+			      display: flex;
+			      justify-content: center;
+			      gap: 2em;
+			      list-style: none;
+			      margin: 0;
+			      padding: 0;
+			    }
+			    nav li a {
+			      text-decoration: none;
+			      color: #ffffff;
+			      font-weight: bold;
+			      transition: color 0.3s;
+			    }
+			    nav li a:hover {
+			      color: #ffffff;
+			      text-shadow: 0 0 5px #f5deb3;
+			    }
+			    section {
+			      margin-top: 3em;
+			      margin-bottom: 3em;
+			      margin: 2em 0;
+			      background: rgba(0, 0, 0, 0.6);
+			      padding: 2em;
+			      border-radius: 8px;
+			      box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+			      font-size: 1.25em;
+			    }
+			    h2 {
+			      font-size: 2em;
 
-      margin-bottom: 0.5em;
-      font-family: 'Cinzel', serif;
-      text-align: center;
-      position: relative;
-      padding-bottom: 1em;
-    }
-    h2::after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: 0;
-      width: 60px;
-      height: 4px;
-      background: #d2b48c;
-      border-radius: 2px;
-      box-shadow: 0 0 40px rgba(255, 239, 184, 1);
-      animation: shimmer 3s infinite ease-in-out;
-    }
-    @keyframes shimmer {
-      0% { box-shadow: 0 0 20px rgba(255, 239, 184, 0.6); }
-      50% { box-shadow: 0 0 40px rgba(255, 239, 184, 1); }
-      100% { box-shadow: 0 0 20px rgba(255, 239, 184, 0.6); }
-    }
-    .character-gallery, .npc-gallery {
-      margin-top: 2em;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5em;
-    }
-    .character-card, .npc-card {
-      border: 2px solid rgba(210, 180, 140, 0.3);
-      box-shadow: 0 0 10px rgba(255, 215, 160, 0.15);
-      position: relative;
-      overflow: hidden;
-      border-radius: 8px;
-      background: #222;
-      min-height: 300px;
-      transition: transform 0.3s ease;
-    }
-    .character-card:hover, .npc-card:hover {
-      transform: scale(1.02);
-    }
-    .character-card img, .npc-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      border-radius: 8px;
-    }
-    .character-info, .npc-info {
-  background: rgba(0, 0, 0, 0.6);
-  padding: 0.75em;
-  color: #ffffff;
-  text-shadow: 1px 1px 3px #000;
-  transition: all 0.3s ease;
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  max-height: 100%;
-  box-sizing: border-box;
-}
-    .character-card:hover .character-info, .npc-card:hover .npc-info {
-      background: rgba(0, 0, 0, 0.8);
-    }
-    .character-info h3, .npc-info h3 {
-      font-family: 'Cinzel', serif;
-      margin: 0;
-      font-size: 1.3em;
-    }
-    .character-info p,
-.npc-info p {
-  white-space: normal;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  line-height: 1.4;
-}
-  .npc-card .npc-info p {
-  font-size: 0.75em;
-  margin-top: 0.3em;
-}
+			      margin-bottom: 0.5em;
+			      font-family: 'Cinzel', serif;
+			      text-align: center;
+			      position: relative;
+			      padding-bottom: 1em;
+			    }
+			    h2::after {
+			      content: "";
+			      position: absolute;
+			      left: 50%;
+			      transform: translateX(-50%);
+			      bottom: 0;
+			      width: 60px;
+			      height: 4px;
+			      background: #d2b48c;
+			      border-radius: 2px;
+			      box-shadow: 0 0 40px rgba(255, 239, 184, 1);
+			      animation: shimmer 3s infinite ease-in-out;
+			    }
+			    @keyframes shimmer {
+			      0% { box-shadow: 0 0 20px rgba(255, 239, 184, 0.6); }
+			      50% { box-shadow: 0 0 40px rgba(255, 239, 184, 1); }
+			      100% { box-shadow: 0 0 20px rgba(255, 239, 184, 0.6); }
+			    }
+			    .character-gallery, .npc-gallery {
+			      margin-top: 2em;
+			      display: grid;
+			      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+			      gap: 1.5em;
+			    }
+			    .character-card, .npc-card {
+			      border: 2px solid rgba(210, 180, 140, 0.3);
+			      box-shadow: 0 0 10px rgba(255, 215, 160, 0.15);
+			      position: relative;
+			      overflow: hidden;
+			      border-radius: 8px;
+			      background: #222;
+			      min-height: 300px;
+			      transition: transform 0.3s ease;
+			    }
+			    .character-card:hover, .npc-card:hover {
+			      transform: scale(1.02);
+			    }
+			    .character-card img, .npc-card img {
+			      width: 100%;
+			      height: 100%;
+			      object-fit: cover;
+			      display: block;
+			      border-radius: 8px;
+			    }
+			    .character-info, .npc-info {
+			  background: rgba(0, 0, 0, 0.6);
+			  padding: 0.75em;
+			  color: #ffffff;
+			  text-shadow: 1px 1px 3px #000;
+			  transition: all 0.3s ease;
+			  width: 100%;
+			  position: absolute;
+			  bottom: 0;
+			  display: flex;
+			  flex-direction: column;
+			  justify-content: flex-end;
+			  max-height: 100%;
+			  box-sizing: border-box;
+			}
+			    .character-card:hover .character-info, .npc-card:hover .npc-info {
+			      background: rgba(0, 0, 0, 0.8);
+			    }
+			    .character-info h3, .npc-info h3 {
+			      font-family: 'Cinzel', serif;
+			      margin: 0;
+			      font-size: 1.3em;
+			    }
+			    .character-info p,
+			.npc-info p {
+			  white-space: normal;
+			  word-wrap: break-word;
+			  overflow-wrap: break-word;
+			  line-height: 1.4;
+			}
+			  .npc-card .npc-info p {
+			  font-size: 0.75em;
+			  margin-top: 0.3em;
+			}
 
-.npc-card .npc-info h3 {
-  font-size: 1.1em;
-}
-</style>
-</head>
-<body>
-  <nav>
-    <ul>
-      <li><a href="https://picsterola.github.io/dnd-site/">Home</a></li>
-      <li><a href="characters.html">Full Roster</a></li>
-    </ul>
-  </nav>
+			.npc-card .npc-info h3 {
+			  font-size: 1.1em;
+			}
+		</style>
+	</head>
+	<body>
+		<nav>
+			<ul>
+				<li><a href="https://picsterola.github.io/dnd-site/">Home</a></li>
+				<li><a href="characters.html">Full Roster</a></li>
+			</ul>
+		</nav>
 
-  <section id="characters">
-    <h2>Character Roster</h2>
-      <p style="text-align: center; font-size: 1em; max-width: 700px; margin: 0 auto 1em auto; color: #ddd; font-family: Helvetica, Arial, sans-serif;">
-      These are the bold souls at the center of the story—adventurers, misfits, and legends in the making. Bound by fate and folly, they carve their paths through peril and prophecy.
-    </p>
-    <div class="character-gallery">
-      <div class="character-card" onclick="openModal('modal-thorne')">
-        <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/character1.png" alt="Thorne Ironfist">
-        <div class="character-info">
-          <h3>Thorne Ironfist</h3>
-          <p>Dwarven Paladin with a drinking problem</p>
-        </div>
-      </div>
-      <div class="character-card" onclick="openModal('modal-lyra')">
-        <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/character2.png" alt="Lyra Moonshade">
-        <div class="character-info">
-          <h3>Lyra Moonshade</h3>
-          <p>Elven Rogue, knife enthusiast, drama queen</p>
-        </div>
-      </div>
-      <div class="character-card" onclick="openModal('modal-milo')">
-        <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/character3.png" alt="Milo Tinkerpop">
-        <div class="character-info">
-          <h3>Milo Tinkerpop</h3>
-          <p>Gnome Artificer, builds things that explode</p>
-        </div>
-      </div>
-      <div class="character-card" onclick="openModal('modal-kaelin')">
-        <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/character4.png" alt="Kaelin Duskwhisper">
-        <div class="character-info">
-          <h3>Kaelin Duskwhisper</h3>
-          <p>Half-Elf Warlock, bound to a cursed blade</p>
-        </div>
-      </div>
-      <div class="character-card" onclick="openModal('modal-vexa')">
-        <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/character5.png" alt="Vexa Coilfang">
-        <div class="character-info">
-          <h3>Vexa Coilfang</h3>
-          <p>Yuan-Ti Sorcerer, seductive and venomous</p>
-        </div>
-      </div>
-      <div class="character-card" onclick="openModal('modal-torgar')">
-        <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/character6.png" alt="Torgar Wrybrew">
-        <div class="character-info">
-          <h3>Torgar Wrybrew</h3>
-          <p>Bugbear Cleric, forge-powered and beer-blessed</p>
-        </div>
-      </div>
-    </div>
-<div id="modal-lyra" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('modal-lyra')">&times;</span>
-    <h2>Lyra Moonshade</h2>
-    <p><strong>Class:</strong> Rogue (Arcane Trickster)</p>
-    <p><strong>Alignment:</strong> Chaotic Neutral</p>
-    <p><strong>Lore:</strong> Lyra is known as much for her deadly precision as her flair for the dramatic. She claims to be descended from moon elves—mostly to justify her flair for cloaks and mysterious entrances.</p>
-  </div>
-</div>
-<div id="modal-milo" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('modal-milo')">&times;</span>
-    <h2>Milo Tinkerpop</h2>
-    <p><strong>Class:</strong> Artificer (Alchemist)</p>
-    <p><strong>Alignment:</strong> Neutral Good</p>
-    <p><strong>Lore:</strong> A brilliant gnome inventor with a slightly alarming obsession with explosions. Milo’s creations sometimes save the day... sometimes singe off eyebrows.</p>
-  </div>
-</div>
-<div id="modal-kaelin" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('modal-kaelin')">&times;</span>
-    <h2>Kaelin Duskwhisper</h2>
-    <p><strong>Class:</strong> Warlock (Hexblade)</p>
-    <p><strong>Alignment:</strong> Neutral</p>
-    <p><strong>Lore:</strong> Bound to a blade that whispers in his sleep, Kaelin walks the line between free will and cursed destiny. He's chill with it. Mostly.</p>
-  </div>
-</div>
-<div id="modal-vexa" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('modal-vexa')">&times;</span>
-    <h2>Vexa Coilfang</h2>
-    <p><strong>Class:</strong> Sorcerer (Shadow Magic)</p>
-    <p><strong>Alignment:</strong> Chaotic Evil (but flirty)</p>
-    <p><strong>Lore:</strong> Half venom, half charm, all trouble. Vexa’s motives are unclear—but her powers definitely aren’t. Watch your step and your heart.</p>
-  </div>
-</div>
-<div id="modal-torgar" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('modal-torgar')">&times;</span>
-    <h2>Torgar Wrybrew</h2>
-    <p><strong>Class:</strong> Cleric (Forge Domain)</p>
-    <p><strong>Alignment:</strong> Lawful Neutral</p>
-    <p><strong>Lore:</strong> Brewmaster and blacksmith, Torgar invokes the flame of the forge and the power of hops. His blessings may burn or bless—but always come with a tankard.</p>
-  </div>
-</div>
+		<section id="characters">
+			<h2>Character Roster</h2>
+			<p style="text-align: center; font-size: 1em; max-width: 700px; margin: 0 auto 1em auto; color: #ddd; font-family: Helvetica, Arial, sans-serif;">
+				These are the bold souls at the center of the story—adventurers, misfits, and legends in the making. Bound by fate and folly, they carve their paths through peril and prophecy.
+			</p>
+			<div class="character-gallery">
+				<div class="character-card" onclick="openModal('modal-thorne')">
+					<img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/character1.png" alt="Thorne Ironfist" />
+					<div class="character-info">
+						<h3>Thorne Ironfist</h3>
+						<p>Dwarven Paladin with a drinking problem</p>
+					</div>
+				</div>
+				<div class="character-card" onclick="openModal('modal-lyra')">
+					<img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/character2.png" alt="Lyra Moonshade" />
+					<div class="character-info">
+						<h3>Lyra Moonshade</h3>
+						<p>Elven Rogue, knife enthusiast, drama queen</p>
+					</div>
+				</div>
+				<div class="character-card" onclick="openModal('modal-milo')">
+					<img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/character3.png" alt="Milo Tinkerpop" />
+					<div class="character-info">
+						<h3>Milo Tinkerpop</h3>
+						<p>Gnome Artificer, builds things that explode</p>
+					</div>
+				</div>
+				<div class="character-card" onclick="openModal('modal-kaelin')">
+					<img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/character4.png" alt="Kaelin Duskwhisper" />
+					<div class="character-info">
+						<h3>Kaelin Duskwhisper</h3>
+						<p>Half-Elf Warlock, bound to a cursed blade</p>
+					</div>
+				</div>
+				<div class="character-card" onclick="openModal('modal-vexa')">
+					<img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/character5.png" alt="Vexa Coilfang" />
+					<div class="character-info">
+						<h3>Vexa Coilfang</h3>
+						<p>Yuan-Ti Sorcerer, seductive and venomous</p>
+					</div>
+				</div>
+				<div class="character-card" onclick="openModal('modal-torgar')">
+					<img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/character6.png" alt="Torgar Wrybrew" />
+					<div class="character-info">
+						<h3>Torgar Wrybrew</h3>
+						<p>Bugbear Cleric, forge-powered and beer-blessed</p>
+					</div>
+				</div>
+			</div>
+			<div id="modal-lyra" class="modal">
+				<div class="modal-content">
+					<span class="close" onclick="closeModal('modal-lyra')">&times;</span>
+					<h2>Lyra Moonshade</h2>
+					<p><strong>Class:</strong> Rogue (Arcane Trickster)</p>
+					<p><strong>Alignment:</strong> Chaotic Neutral</p>
+					<p><strong>Lore:</strong> Lyra is known as much for her deadly precision as her flair for the dramatic. She claims to be descended from moon elves—mostly to justify her flair for cloaks and mysterious entrances.</p>
+				</div>
+			</div>
+			<div id="modal-milo" class="modal">
+				<div class="modal-content">
+					<span class="close" onclick="closeModal('modal-milo')">&times;</span>
+					<h2>Milo Tinkerpop</h2>
+					<p><strong>Class:</strong> Artificer (Alchemist)</p>
+					<p><strong>Alignment:</strong> Neutral Good</p>
+					<p><strong>Lore:</strong> A brilliant gnome inventor with a slightly alarming obsession with explosions. Milo’s creations sometimes save the day... sometimes singe off eyebrows.</p>
+				</div>
+			</div>
+			<div id="modal-kaelin" class="modal">
+				<div class="modal-content">
+					<span class="close" onclick="closeModal('modal-kaelin')">&times;</span>
+					<h2>Kaelin Duskwhisper</h2>
+					<p><strong>Class:</strong> Warlock (Hexblade)</p>
+					<p><strong>Alignment:</strong> Neutral</p>
+					<p><strong>Lore:</strong> Bound to a blade that whispers in his sleep, Kaelin walks the line between free will and cursed destiny. He's chill with it. Mostly.</p>
+				</div>
+			</div>
+			<div id="modal-vexa" class="modal">
+				<div class="modal-content">
+					<span class="close" onclick="closeModal('modal-vexa')">&times;</span>
+					<h2>Vexa Coilfang</h2>
+					<p><strong>Class:</strong> Sorcerer (Shadow Magic)</p>
+					<p><strong>Alignment:</strong> Chaotic Evil (but flirty)</p>
+					<p><strong>Lore:</strong> Half venom, half charm, all trouble. Vexa’s motives are unclear—but her powers definitely aren’t. Watch your step and your heart.</p>
+				</div>
+			</div>
+			<div id="modal-torgar" class="modal">
+				<div class="modal-content">
+					<span class="close" onclick="closeModal('modal-torgar')">&times;</span>
+					<h2>Torgar Wrybrew</h2>
+					<p><strong>Class:</strong> Cleric (Forge Domain)</p>
+					<p><strong>Alignment:</strong> Lawful Neutral</p>
+					<p><strong>Lore:</strong> Brewmaster and blacksmith, Torgar invokes the flame of the forge and the power of hops. His blessings may burn or bless—but always come with a tankard.</p>
+				</div>
+			</div>
 
-  <section id="npcs">
-    <h2>Major NPCs</h2>
-    <p style="text-align: center; font-size: .8em; max-width: 700px; margin: 0 auto 1em auto; color: #ddd; font-family: Helvetica, Arial, sans-serif;">
-      These influential figures shape the world around the party—schemers, sages, warlords, and wanderers who cross paths with fate. Some aid, some obstruct, and others blur the line entirely.
-    </p>
-    <div class="npc-gallery">
-  <div class="npc-card">
-    <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/npcs/npc-lady-seraphine.png" alt="NPC 1">
-    <div class="npc-info">
-      <h3>Lady Seraphine</h3>
-      <p>Mysterious patron of the party with a veiled past</p>
-    </div>
-  </div>
-  <div class="npc-card">
-    <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/npcs/npc-baron-redmar.png" alt="NPC 2">
-    <div class="npc-info">
-      <h3>Baron Redmar</h3>
-      <p>Ruthless noble with eyes on the throne</p>
-    </div>
-  </div>
-  <div class="npc-card">
-    <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/npcs/npc-elaris-the-sage.png" alt="NPC 3">
-    <div class="npc-info">
-      <h3>Elaris the Sage</h3>
-      <p>A cryptic scholar who knows too much</p>
-    </div>
-  </div>
-  <div class="npc-card">
-    <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/npcs/npc-captain-branth.png" alt="NPC 4">
-    <div class="npc-info">
-      <h3>Captain Branth</h3>
-      <p>Gruff mercenary commander with a heart of gold</p>
-    </div>
-  </div>
-  <div class="npc-card">
-    <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/npcs/npc-madame-nyla.png" alt="NPC 5">
-    <div class="npc-info">
-      <h3>Madame Nyla</h3>
-      <p>Seer of the Wastes with shifting visions of doom</p>
-    </div>
-  </div>
-  <div class="npc-card">
-    <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/npcs/npc-high-arcanist-volmir.png" alt="NPC 6">
-    <div class="npc-info">
-      <h3>High Arcanist Volmir</h3>
-      <p>Disgraced court mage turned outlaw conjurer</p>
-    </div>
-  </div>
-  <div class="npc-card">
-    <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/npcs/npc-sister-elenwen.png" alt="NPC 7">
-    <div class="npc-info">
-      <h3>Sister Elenwen</h3>
-      <p>Wandering healer with a divine secret</p>
-    </div>
-  </div>
-  <div class="npc-card">
-    <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/npcs/npc-gruk-the-unyielding.png" alt="NPC 8">
-    <div class="npc-info">
-      <h3>Gruk the Unyielding</h3>
-      <p>Orc chieftain with a code of ancient honor</p>
-    </div>
-  </div>
-  <div class="npc-card">
-    <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/npcs/npc-inquisitor-vale.png" alt="NPC 9">
-    <div class="npc-info">
-      <h3>Inquisitor Vale</h3>
-      <p>Fanatical pursuer of heretics and secrets</p>
-    </div>
-  </div>
-  <div class="npc-card">
-    <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/npcs/npc-archduke-malric.png" alt="NPC 10">
-    <div class="npc-info">
-      <h3>Archduke Malric</h3>
-      <p>Diplomatic snake with a velvet tongue</p>
-    </div>
-  </div>
-  <div class="npc-card">
-    <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/npcs/npc-faelan-duskwatch.png" alt="NPC 11">
-    <div class="npc-info">
-      <h3>Faelan Duskwatch</h3>
-      <p>Silent ranger who watches from the shadows</p>
-    </div>
-  </div>
-  <div class="npc-card">
-    <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/npcs/npc-jinx-whistletoe.png" alt="NPC 12">
-    <div class="npc-info">
-      <h3>Jinx Whistletoe</h3>
-      <p>Cheerful halfling informant who knows everybody</p>
-    </div>
-  </div>
-</div>
-  </section>
+			<section id="npcs">
+				<h2>Major NPCs</h2>
+				<p style="text-align: center; font-size: .8em; max-width: 700px; margin: 0 auto 1em auto; color: #ddd; font-family: Helvetica, Arial, sans-serif;">
+					These influential figures shape the world around the party—schemers, sages, warlords, and wanderers who cross paths with fate. Some aid, some obstruct, and others blur the line entirely.
+				</p>
+				<div class="npc-gallery">
+					<div class="npc-card">
+						<img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/npcs/npc-lady-seraphine.png" alt="NPC 1" />
+						<div class="npc-info">
+							<h3>Lady Seraphine</h3>
+							<p>Mysterious patron of the party with a veiled past</p>
+						</div>
+					</div>
+					<div class="npc-card">
+						<img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/npcs/npc-baron-redmar.png" alt="NPC 2" />
+						<div class="npc-info">
+							<h3>Baron Redmar</h3>
+							<p>Ruthless noble with eyes on the throne</p>
+						</div>
+					</div>
+					<div class="npc-card">
+						<img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/npcs/npc-elaris-the-sage.png" alt="NPC 3" />
+						<div class="npc-info">
+							<h3>Elaris the Sage</h3>
+							<p>A cryptic scholar who knows too much</p>
+						</div>
+					</div>
+					<div class="npc-card">
+						<img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/npcs/npc-captain-branth.png" alt="NPC 4" />
+						<div class="npc-info">
+							<h3>Captain Branth</h3>
+							<p>Gruff mercenary commander with a heart of gold</p>
+						</div>
+					</div>
+					<div class="npc-card">
+						<img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/npcs/npc-madame-nyla.png" alt="NPC 5" />
+						<div class="npc-info">
+							<h3>Madame Nyla</h3>
+							<p>Seer of the Wastes with shifting visions of doom</p>
+						</div>
+					</div>
+					<div class="npc-card">
+						<img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/npcs/npc-high-arcanist-volmir.png" alt="NPC 6" />
+						<div class="npc-info">
+							<h3>High Arcanist Volmir</h3>
+							<p>Disgraced court mage turned outlaw conjurer</p>
+						</div>
+					</div>
+					<div class="npc-card">
+						<img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/npcs/npc-sister-elenwen.png" alt="NPC 7" />
+						<div class="npc-info">
+							<h3>Sister Elenwen</h3>
+							<p>Wandering healer with a divine secret</p>
+						</div>
+					</div>
+					<div class="npc-card">
+						<img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/npcs/npc-gruk-the-unyielding.png" alt="NPC 8" />
+						<div class="npc-info">
+							<h3>Gruk the Unyielding</h3>
+							<p>Orc chieftain with a code of ancient honor</p>
+						</div>
+					</div>
+					<div class="npc-card">
+						<img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/npcs/npc-inquisitor-vale.png" alt="NPC 9" />
+						<div class="npc-info">
+							<h3>Inquisitor Vale</h3>
+							<p>Fanatical pursuer of heretics and secrets</p>
+						</div>
+					</div>
+					<div class="npc-card">
+						<img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/npcs/npc-archduke-malric.png" alt="NPC 10" />
+						<div class="npc-info">
+							<h3>Archduke Malric</h3>
+							<p>Diplomatic snake with a velvet tongue</p>
+						</div>
+					</div>
+					<div class="npc-card">
+						<img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/npcs/npc-faelan-duskwatch.png" alt="NPC 11" />
+						<div class="npc-info">
+							<h3>Faelan Duskwatch</h3>
+							<p>Silent ranger who watches from the shadows</p>
+						</div>
+					</div>
+					<div class="npc-card">
+						<img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/npcs/npc-jinx-whistletoe.png" alt="NPC 12" />
+						<div class="npc-info">
+							<h3>Jinx Whistletoe</h3>
+							<p>Cheerful halfling informant who knows everybody</p>
+						</div>
+					</div>
+				</div>
+			</section>
 
-  <section id="the-story-so-far">
-    <h2>The Story So Far</h2>
-    <p style="text-align: center; font-size: .8em; max-width: 700px; margin: 0 auto 1em auto; color: #ddd; font-family: Helvetica, Arial, sans-serif;">
-      Beneath the fractured sky of Ovener lie the Four Great Realms: the war-scarred <strong>Duchy of Malric</strong>, the mist-veiled <strong>Sisterhood of the Shroud</strong>, the arcane-spined <strong>Tower-Cities of Vel Thalor</strong>, and the lawless expanse known only as <strong>The Wastes</strong>. Each is locked in an uneasy dance—treaties stitched with distrust, alliances traded like coin, and omens gathering like crows on the battlements.
-    </p>
-    <p style="text-align: center; font-size: .8em; max-width: 700px; margin: 1em auto; color: #ddd; font-family: Helvetica, Arial, sans-serif;">
-      In the north, <strong>Archduke Malric</strong> has declared himself Sovereign Regent, fracturing the old High Council and pressing his claim with steel and shadow. His chief operative is <strong>Baron Redmar</strong>, a ruthless warlord with noble blood but no love for diplomacy. <strong>Captain Branth</strong>, once their loyal enforcer, has since broken ranks, forming a mercenary cohort that defends the free peoples along the borderlands—if the price is right.
-    </p>
-    <p style="text-align: center; font-size: .8em; max-width: 700px; margin: 1em auto; color: #ddd; font-family: Helvetica, Arial, sans-serif;">
-      Beyond the veil of faith, <strong>Sister Elenwen</strong> wanders from ruin to ruin, healing wounds and whispering forgotten names of gods no longer worshiped. She is watched—always—from afar by <strong>Inquisitor Vale</strong>, whose zealotry burns brighter than any scripture. And somewhere between prophecy and madness, <strong>Madame Nyla</strong> speaks riddles that shift each time the wind turns.
-    </p>
-    <p style="text-align: center; font-size: .8em; max-width: 700px; margin: 1em auto; color: #ddd; font-family: Helvetica, Arial, sans-serif;">
-      Far to the west, the ancient orc tribes rally behind <strong>Gruk the Unyielding</strong>, who seeks to unite the old clans beneath one banner—not for conquest, but for survival. His emissary, <strong>Faelan Duskwatch</strong>, has already begun negotiating a fragile accord with <strong>Lady Seraphine</strong>, the enigmatic patron whose past may hold the key to peace... or catastrophe. Hovering over it all is <strong>High Arcanist Volmir</strong>, a fugitive from Vel Thalor whose grasp of forbidden magic threatens to tear open reality itself.
-    </p>
-    <p style="text-align: center; font-size: .8em; max-width: 700px; margin: 1em auto 0 auto; color: #ddd; font-family: Helvetica, Arial, sans-serif;">
-      And through the cracks in these alliances, <strong>Jinx Whistletoe</strong> skips—laughing, listening, and always knowing more than she lets on.
-    </p>
-  </section>
+			<section id="the-story-so-far">
+				<h2>The Story So Far</h2>
+				<p style="text-align: center; font-size: .8em; max-width: 700px; margin: 0 auto 1em auto; color: #ddd; font-family: Helvetica, Arial, sans-serif;">
+					Beneath the fractured sky of Ovener lie the Four Great Realms: the war-scarred <strong>Duchy of Malric</strong>, the mist-veiled <strong>Sisterhood of the Shroud</strong>, the arcane-spined
+					<strong>Tower-Cities of Vel Thalor</strong>, and the lawless expanse known only as <strong>The Wastes</strong>. Each is locked in an uneasy dance—treaties stitched with distrust, alliances traded like coin, and omens
+					gathering like crows on the battlements.
+				</p>
+				<p style="text-align: center; font-size: .8em; max-width: 700px; margin: 1em auto; color: #ddd; font-family: Helvetica, Arial, sans-serif;">
+					In the north, <strong>Archduke Malric</strong> has declared himself Sovereign Regent, fracturing the old High Council and pressing his claim with steel and shadow. His chief operative is <strong>Baron Redmar</strong>, a
+					ruthless warlord with noble blood but no love for diplomacy. <strong>Captain Branth</strong>, once their loyal enforcer, has since broken ranks, forming a mercenary cohort that defends the free peoples along the
+					borderlands—if the price is right.
+				</p>
+				<p style="text-align: center; font-size: .8em; max-width: 700px; margin: 1em auto; color: #ddd; font-family: Helvetica, Arial, sans-serif;">
+					Beyond the veil of faith, <strong>Sister Elenwen</strong> wanders from ruin to ruin, healing wounds and whispering forgotten names of gods no longer worshiped. She is watched—always—from afar by
+					<strong>Inquisitor Vale</strong>, whose zealotry burns brighter than any scripture. And somewhere between prophecy and madness, <strong>Madame Nyla</strong> speaks riddles that shift each time the wind turns.
+				</p>
+				<p style="text-align: center; font-size: .8em; max-width: 700px; margin: 1em auto; color: #ddd; font-family: Helvetica, Arial, sans-serif;">
+					Far to the west, the ancient orc tribes rally behind <strong>Gruk the Unyielding</strong>, who seeks to unite the old clans beneath one banner—not for conquest, but for survival. His emissary,
+					<strong>Faelan Duskwatch</strong>, has already begun negotiating a fragile accord with <strong>Lady Seraphine</strong>, the enigmatic patron whose past may hold the key to peace... or catastrophe. Hovering over it all is
+					<strong>High Arcanist Volmir</strong>, a fugitive from Vel Thalor whose grasp of forbidden magic threatens to tear open reality itself.
+				</p>
+				<p style="text-align: center; font-size: .8em; max-width: 700px; margin: 1em auto 0 auto; color: #ddd; font-family: Helvetica, Arial, sans-serif;">
+					And through the cracks in these alliances, <strong>Jinx Whistletoe</strong> skips—laughing, listening, and always knowing more than she lets on.
+				</p>
+			</section>
 
-  
-  <div id="modal-thorne" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('modal-thorne')">&times;</span>
-      <h2>Thorne Ironfist</h2>
-      <p><strong>Class:</strong> Paladin (Oath of Redemption)</p>
-      <p><strong>Alignment:</strong> Lawful Good (mostly...)</p>
-      <p><strong>Lore:</strong> Once the pride of a mountain clan, Thorne carries the shame of a broken vow. Ale numbs the pain, but his hammer still remembers justice.</p>
-    </div>
-  </div>
+			<div id="modal-thorne" class="modal">
+				<div class="modal-content">
+					<span class="close" onclick="closeModal('modal-thorne')">&times;</span>
+					<h2>Thorne Ironfist</h2>
+					<p><strong>Class:</strong> Paladin (Oath of Redemption)</p>
+					<p><strong>Alignment:</strong> Lawful Good (mostly...)</p>
+					<p><strong>Lore:</strong> Once the pride of a mountain clan, Thorne carries the shame of a broken vow. Ale numbs the pain, but his hammer still remembers justice.</p>
+				</div>
+			</div>
 
-  <script>
-    function openModal(id) {
-      document.getElementById(id).style.display = "block";
-    }
-    function closeModal(id) {
-      document.getElementById(id).style.display = "none";
-    }
-    window.onclick = function(event) {
-      document.querySelectorAll('.modal').forEach(modal => {
-        if (event.target === modal) modal.style.display = "none";
-      });
-    }
-  </script>
+			<script>
+				function openModal(id) {
+				  document.getElementById(id).style.display = "block";
+				}
+				function closeModal(id) {
+				  document.getElementById(id).style.display = "none";
+				}
+				window.onclick = function(event) {
+				  document.querySelectorAll('.modal').forEach(modal => {
+				    if (event.target === modal) modal.style.display = "none";
+				  });
+				}
+			</script>
 
-  <style>
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1001;
-      left: 0; top: 0;
-      width: 100%; height: 100%;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.8);
-    }
-    .modal-content {
-      background-color: #222;
-      margin: 10% auto;
-      padding: 2em;
-      border: 1px solid #d2b48c;
-      width: 80%;
-      max-width: 600px;
-      color: #fff;
-      border-radius: 8px;
-      text-shadow: none;
-    }
-    .close {
-      color: #aaa;
-      float: right;
-      font-size: 28px;
-      cursor: pointer;
-    }
-    .close:hover {
-      color: #fff;
-    }
-  </style>
-</body>
+			<style>
+				.modal {
+				  display: none;
+				  position: fixed;
+				  z-index: 1001;
+				  left: 0; top: 0;
+				  width: 100%; height: 100%;
+				  overflow: auto;
+				  background-color: rgba(0,0,0,0.8);
+				}
+				.modal-content {
+				  background-color: #222;
+				  margin: 10% auto;
+				  padding: 2em;
+				  border: 1px solid #d2b48c;
+				  width: 80%;
+				  max-width: 600px;
+				  color: #fff;
+				  border-radius: 8px;
+				  text-shadow: none;
+				}
+				.close {
+				  color: #aaa;
+				  float: right;
+				  font-size: 28px;
+				  cursor: pointer;
+				}
+				.close:hover {
+				  color: #fff;
+				}
+			</style>
+		</section>
+	</body>
 </html>

@@ -12,6 +12,32 @@
   <meta charset="UTF-8">
   <title>The Winds of Ovener</title>
     <style>
+      /* Reusable larger body text */
+      .large-text {
+      font-size: 1.5em;
+}
+      /* Bigger, centered lore text */
+      .lore-block {
+      font-size: 1.5em;
+      text-align: center;
+      line-height: 1.9;
+      padding: 2em;
+}
+      /* Fixed-height banner that holds the landscape image */
+      .banner-image {
+      position: relative;
+      height: 400px;
+      overflow: hidden;
+      margin: 4em 0 2em;
+}
+      /* Styling for the world-map image */
+      .map-img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+      margin-top: 1em;
+}
+
     nav {
       position: sticky;
       top: 0;
@@ -100,7 +126,6 @@
 }
 
 body {
-  font-family: 'Cinzel', serif;
       font-family: Helvetica, Arial, sans-serif;
       background-color: #1a1a1a;
       color: #ffffff;
@@ -133,8 +158,6 @@ body {
       border-radius: 2px;
       box-shadow: 0 0 8px rgba(255, 239, 184, 0.5);
       animation: shimmer 3s infinite ease-in-out;
-    }
-      font-family: 'Cinzel', serif;
     }
     ul {
       list-style-type: none;
@@ -184,15 +207,18 @@ body {
       border-radius: 8px;
     }
     .character-info {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      padding: 1em;
-      color: #ffffff;
-      text-shadow: 1px 1px 3px #000;
-      transition: all 0.3s ease;
-    }
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    /* side padding already there */
+    padding: 1em 1.5em;        /* change to 2em if you want more room */
+    box-sizing: border-box;    /* NEW: keep padding inside the bar */
+    color: #ffffff;
+    text-shadow: 1px 1px 3px #000;
+    transition: all 0.3s ease;
+}
+
     .character-card:hover .character-info {
       background: rgba(0, 0, 0, 0.8);
     }
@@ -201,10 +227,10 @@ body {
       font-size: 1.3em;
     }
     .character-info p {
-      margin: 0.3em 0 0;
-      font-size: 0.95em;
-    }
-
+    margin: 0.3em 0 0;
+    font-size: 0.75em;     /* slightly smaller */
+    color: #dddddd;        /* optional: softer grey so it competes less */
+}
     footer {
       text-align: center;
       padding: 2em;
@@ -238,8 +264,6 @@ body {
         transform: translateY(0);
       }
     }
-
-    $1
   transition: transform 0.5s ease-in-out;
 }
 
@@ -274,13 +298,6 @@ body {
   0% { box-shadow: 0 0 20px rgba(255, 239, 184, 0.6); }
   50% { box-shadow: 0 0 40px rgba(255, 239, 184, 1); }
   100% { box-shadow: 0 0 20px rgba(255, 239, 184, 0.6); }
-}
-  50% { box-shadow: 0 0 24px rgba(255, 239, 184, 1); }
-  100% { box-shadow: 0 0 12px rgba(255, 239, 184, 0.4); }
-}
-  50% { box-shadow: 0 0 16px rgba(255, 239, 184, 0.6); }
-  100% { box-shadow: 0 0 8px rgba(255, 239, 184, 0.2); }
-}
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
@@ -320,11 +337,11 @@ body {
     <p>Our story begins in the borderlands, where a ragtag fellowship of heroes — outcasts, heirs, and mercenaries alike — are drawn together by fate, gold, and grudges. From cursed ruins to high courts, from the depths of the Underdark to the skies above dragon-spired peaks, they must face eldritch horrors, corrupt empires, and choices that echo through time.</p>
     <p>Will they rise as legends, or be forgotten as dust in the road?</p>
   </section>
-  <div style="position: relative; height: 400px; overflow: hidden; margin: 4em 0 2em 0;">
+<div class="banner-image">
   <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/landscape.png" alt="Landscape of Ovener" style="position: absolute; top: 0; left: 0; width: 100%; height: auto; min-height: 100%; object-fit: cover; transform: translateZ(0); will-change: transform;">
 </div>
 
-<section id="characters" class="fade-in" style="font-size: 1.5em;">
+<section id="characters" class="fade-in large-text">
     <h2>Character Roster</h2>
     <div class="character-gallery">
       <div class="character-card">
@@ -372,12 +389,14 @@ body {
     </div>
   </section>
 
-  <section id="lore" class="fade-in" style="font-size: 1.5em; text-align: center; line-height: 1.9; padding: 2em;">
+<section id="lore" class="fade-in lore-block">
     <h2>World Lore</h2>
         For millennia, Ovener was a land of balance — between arcane and divine, order and chaos, mortal and myth. The First Age saw the rise of the Aurelian Empire, a golden civilization that spread magic through leyline conduits. But power bred corruption, and the Cataclysm shattered the empire, unleashing rogue gods and magical storms. In the ages since, kingdoms have risen and fallen atop its bones. The Crimson Comet marks the fourth turning — a signal that Ovener stands once again at the edge of epochal change.</p>
     <p>Behold the realm of Ovener. From the storm-lashed coastlines of Kharval to the sun-scorched peaks of Drak'Thul, the land is ancient and brimming with danger and prophecy.</p>
     <div style="position: relative; text-align: center;">
-  <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/fantasy_map.png" alt="Map of Ovener" style="width:100%; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.7); margin-top: 1em;">
+<img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/fantasy_map.png"
+     alt="Map of Ovener"
+     class="map-img">
   <div style="position: absolute; top: 30%; left: 40%; transform: translate(-50%, -50%); background: rgba(0, 0, 0, 0.6); color: #fff; padding: 0.5em; border-radius: 6px; font-size: 0.7em;"><span title='Once a glorious capital, now haunted by the echoes of betrayal and ghostly oaths.'>Virehall</span></div>
   <div style="position: absolute; top: 20%; left: 65%; transform: translate(-50%, -50%); background: rgba(0, 0, 0, 0.6); color: #fff; padding: 0.5em; border-radius: 6px; font-size: 0.7em;"><span title='A fey-touched forest where time twists and spirits bargain with mortals.'>Bramblehollow</span></div>
   <div style="position: absolute; top: 15%; left: 25%; transform: translate(-50%, -50%); background: rgba(0, 0, 0, 0.6); color: #fff; padding: 0.5em; border-radius: 6px; font-size: 0.7em;"><span title='An ancient forge-city powered by magma and the will of bound elementals.'>Emberdeep Forge</span></div>

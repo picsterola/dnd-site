@@ -3,19 +3,112 @@
 <head>
   <meta charset="UTF-8">
   <title>Session Recaps – Winds of Ovener</title>
-  <link rel="stylesheet" href="../styles.css"><!-- or copy your inline <style> -->
+  <!-- reuse main styles if you extract them, otherwise inline -->
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    body{background:#1a1a1a;color:#fff;font-family:Helvetica,Arial,sans-serif;margin:0;padding:2em;text-shadow:1px 1px 2px #000}
+    h1{font-family:'Cinzel',serif;text-align:center;margin:0 0 1.5em 0}
+    ul.recap-list{max-width:600px;margin:0 auto;list-style:"🗡️ ";padding:0;line-height:1.6;font-size:1.1em}
+    ul.recap-list li{margin:1.2em 0}
+    ul.recap-list a{color:#d2b48c;text-decoration:none}
+    ul.recap-list a:hover{text-shadow:0 0 6px #f5deb3}
+    .back-home{display:block;text-align:center;margin-top:3em;color:#d2b48c;text-decoration:none}
+  .new-badge {
+    background: #d2b48c;
+    color: #000;
+    font-size: 0.7em;
+    font-weight: bold;
+    padding: 0.15em 0.5em;
+    border-radius: 4px;
+    margin-left: 0.5em;
+}
+.recap-teaser {
+  display: block;          /* takes its own line */
+  font-size: 0.9em;        /* smaller than the title */
+  color: #cccccc;          /* softer grey */
+  margin: 0.1em 0 0 1.4em; /* slight indent so it lines up under the text */
+  line-height: 1.4;
+}
+/* --- Back-to-top button --- */
+.back-to-top {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  background: #d2b48c;
+  color: #000;
+  font-family: 'Cinzel',serif;
+  font-size: 0.9em;
+  padding: 0.4em 0.8em;
+  border-radius: 6px;
+  text-decoration: none;
+  box-shadow: 0 0 6px rgba(0,0,0,0.4);
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+.back-to-top:hover { opacity: 1; }
+
+.recap-search {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto 1.5em;
+  padding: 0.4em 0.6em;
+  border-radius: 6px;
+  border: 1px solid #555;
+  background: #222;
+  color: #fff;
+  font-size: 1em;
+}
+
+  </style>
 </head>
 <body>
-  <h1 style="text-align:center;">Session Recaps</h1>
+    <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#schedule">Schedule</a></li>
+      <li><a href="recap/index.html">Recaps</a></li>
+      <li><a href="characters.html">Personas</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#lore">Lore</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+<a id="top"></a>
+<h1>Session Recaps</h1>
 
-  <ul style="max-width:600px;margin:0 auto;line-height:1.7;">
-    <li><a href="2025-06-07.html">Session 12 – 7 Jun 2025 – “Into the Emberdeep Forge”</a></li>
-    <li><a href="2025-06-21.html">Session 13 – 21 Jun 2025 – “Council of Broken Oaths”</a></li>
-  </ul>
+  <input id="recap-search"
+       type="text"
+       placeholder="Search sessions…"
+       class="recap-search">
+<ul class="recap-list">
+  <li><a href="2025-06-21.html">Session 13 – 21 Jun 2025 – “Council of Broken Oaths”</a>
+    <span class="new-badge">NEW</span>
+    <span class="recap-teaser">The party bargains with a fire primordial and fractures an uneasy alliance.</span>
+  </li>
+  <li><a href="2025-06-07.html">Session 12 – 7 Jun 2025 – “Into the Emberdeep Forge”</a>
+    <span class="recap-teaser">First descent into the magma halls; Thorne recovers Clan Ironfist’s lost hammer.</span>
+  </li>
+  <!-- Add new sessions here -->
+</ul>
 
-  <p style="text-align:center;">
-    <a href="../index.html">← Back to Home</a>
-  </p>
+<a href="../index.html" class="back-home">← Back to Home</a>
+<a href="#top" class="back-to-top">↑ Top</a>
+
+  <script>
+    /* simple “type & filter” for recap list */
+    const searchBox = document.getElementById('recap-search');
+    const items = document.querySelectorAll('.recap-list li');
+
+    searchBox.addEventListener('input', () => {
+    const q = searchBox.value.toLowerCase();
+    items.forEach(li => {
+    li.style.display = li.textContent.toLowerCase().includes(q) ? '' : 'none';
+  });
+});
+</script>
+<footer>
+    <p>© 2025 The Fellowship of the Dice | Campaign managed by Dungeon Master Picola</p>
+  </footer>
 </body>
 </html>
-

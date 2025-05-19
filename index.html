@@ -37,6 +37,28 @@
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
       margin-top: 1em;
 }
+      .schedule-iframe {
+      width: 100%;
+      max-width: 800px;
+      height: 600px;
+      border: none;
+      display: block;
+      margin: 0 auto;
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
+      border-radius: 8px;
+}
+      .session-list {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 0;
+      list-style: "🗡️ ";
+      font-size: 1.3em;
+      line-height: 1.6;
+      text-align: center;        /* ← NEW: centers the whole line */
+      list-style-position: inside;/* keeps the 🗡️ inside the text block */
+}
+
+.session-list li { margin: 0.4em 0; }
 
     nav {
       position: sticky;
@@ -337,6 +359,17 @@ body {
     <p>Our story begins in the borderlands, where a ragtag fellowship of heroes — outcasts, heirs, and mercenaries alike — are drawn together by fate, gold, and grudges. From cursed ruins to high courts, from the depths of the Underdark to the skies above dragon-spired peaks, they must face eldritch horrors, corrupt empires, and choices that echo through time.</p>
     <p>Will they rise as legends, or be forgotten as dust in the road?</p>
   </section>
+  <!-- === Session Schedule === -->
+  <section id="schedule" class="fade-in">
+  <h2>Upcoming Sessions</h2>
+
+<!-- Upcoming Sessions – paste this over the “Loading schedule…” line -->
+<ul class="session-list">
+  <li><strong>Sat&nbsp;·&nbsp;June&nbsp;7&nbsp;·&nbsp;2025&nbsp;—&nbsp;10:00 AM</strong></li>
+  <li><strong>Sat&nbsp;·&nbsp;June&nbsp;21&nbsp;·&nbsp;2025&nbsp;—&nbsp;10:00 AM</strong></li>
+</ul>
+
+</section>
 <div class="banner-image">
   <img src="https://raw.githubusercontent.com/picsterola/dnd-site/main/landscape.png" alt="Landscape of Ovener" style="position: absolute; top: 0; left: 0; width: 100%; height: auto; min-height: 100%; object-fit: cover; transform: translateZ(0); will-change: transform;">
 </div>

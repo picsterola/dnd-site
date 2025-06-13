@@ -321,42 +321,7 @@ body {
 /* NPC gallery styling */
 .npc-gallery {
   margin-top: 2em;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5em;
 }
-.npc-card {
-  border: 2px solid rgba(210, 180, 140, 0.3);
-  box-shadow: 0 0 10px rgba(255, 215, 160, 0.15);
-  position: relative;
-  overflow: hidden;
-  border-radius: 8px;
-  background: #222;
-  min-height: 300px;
-  transition: transform 0.3s ease;
-}
-.npc-card:hover { transform: scale(1.02); }
-.npc-card img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 8px; }
-.npc-info {
-  background: rgba(0, 0, 0, 0.6);
-  padding: 0.75em;
-  color: #ffffff;
-  text-shadow: 1px 1px 3px #000;
-  transition: all 0.3s ease;
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  max-height: 100%;
-  box-sizing: border-box;
-}
-.npc-card:hover .npc-info { background: rgba(0, 0, 0, 0.8); }
-.npc-info h3 { font-family: 'Cinzel', serif; margin: 0; font-size: 1.3em; }
-.npc-info p { white-space: normal; word-wrap: break-word; overflow-wrap: break-word; line-height: 1.4; }
-.npc-card .npc-info p { font-size: 0.75em; margin-top: 0.3em; }
-.npc-card .npc-info h3 { font-size: 1.1em; }
 
 /* Story recap cards */
 .story-card {

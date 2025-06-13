@@ -1,4 +1,3 @@
-<style>
       /* Reusable larger body text */
       .large-text {
       font-size: 1.5em;
@@ -316,4 +315,170 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
-</style>
+
+/* ===== Additional Components ===== */
+
+/* NPC gallery styling */
+.npc-gallery {
+  margin-top: 2em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5em;
+}
+.npc-card {
+  border: 2px solid rgba(210, 180, 140, 0.3);
+  box-shadow: 0 0 10px rgba(255, 215, 160, 0.15);
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #222;
+  min-height: 300px;
+  transition: transform 0.3s ease;
+}
+.npc-card:hover { transform: scale(1.02); }
+.npc-card img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 8px; }
+.npc-info {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0.75em;
+  color: #ffffff;
+  text-shadow: 1px 1px 3px #000;
+  transition: all 0.3s ease;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  max-height: 100%;
+  box-sizing: border-box;
+}
+.npc-card:hover .npc-info { background: rgba(0, 0, 0, 0.8); }
+.npc-info h3 { font-family: 'Cinzel', serif; margin: 0; font-size: 1.3em; }
+.npc-info p { white-space: normal; word-wrap: break-word; overflow-wrap: break-word; line-height: 1.4; }
+.npc-card .npc-info p { font-size: 0.75em; margin-top: 0.3em; }
+.npc-card .npc-info h3 { font-size: 1.1em; }
+
+/* Story recap cards */
+.story-card {
+  background: #2a2a2a;
+  border-radius: 0;
+  padding: 1.25em;
+  text-align: center;
+}
+.story-card h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.2em;
+  color: #d2b48c;
+  text-shadow: 0 0 6px rgba(210, 180, 140, 0.45);
+  margin-top: 0;
+}
+.story-card p {
+  font-size: 0.8em;
+  line-height: 1.4;
+}
+
+/* Modal dialog */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1001;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.modal-content {
+  background-color: #222;
+  margin: 10% auto;
+  padding: 2em;
+  border: 1px solid #d2b48c;
+  width: 80%;
+  max-width: 600px;
+  color: #fff;
+  border-radius: 8px;
+  text-shadow: none;
+}
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+}
+.close:hover { color: #fff; }
+
+/* Recap list page */
+h1 {
+  font-family: 'Cinzel', serif;
+  text-align: center;
+  margin: 0 0 1.5em 0;
+}
+.recap-list {
+  max-width: 600px;
+  margin: 0 auto;
+  list-style: '🗡️ ';
+  padding: 0;
+  line-height: 1.6;
+  font-size: 1.1em;
+}
+.recap-list li { margin: 1.2em 0; }
+.recap-list a { color: #d2b48c; text-decoration: none; }
+.recap-list a:hover { text-shadow: 0 0 6px #f5deb3; }
+.back-home { display: block; text-align: center; margin-top: 3em; color: #d2b48c; text-decoration: none; }
+.new-badge {
+  background: #d2b48c;
+  color: #000;
+  font-size: 0.7em;
+  font-weight: bold;
+  padding: 0.15em 0.5em;
+  border-radius: 4px;
+  margin-left: 0.5em;
+}
+.recap-teaser {
+  display: block;
+  font-size: 0.9em;
+  color: #cccccc;
+  margin: 0.1em 0 0 1.4em;
+  line-height: 1.4;
+}
+.back-to-top {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  background: #d2b48c;
+  color: #000;
+  font-family: 'Cinzel', serif;
+  font-size: 0.9em;
+  padding: 0.4em 0.8em;
+  border-radius: 6px;
+  text-decoration: none;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+.back-to-top:hover { opacity: 1; }
+.recap-search {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto 1.5em;
+  padding: 0.4em 0.6em;
+  border-radius: 6px;
+  border: 1px solid #555;
+  background: #222;
+  color: #fff;
+  font-size: 1em;
+}
+.spacer-xl { margin-top: 1.25rem; }
+
+/* Footer */
+.site-footer {
+  background: rgba(10, 10, 10, 0.9);
+  border-top: 2px solid #d2b48c;
+  padding: 1.5em 0;
+  text-align: center;
+  font-size: 0.9em;
+}
+.site-footer a { color: #d2b48c; text-decoration: none; }
+.site-footer a:hover { text-shadow: 0 0 5px #f5deb3; }
